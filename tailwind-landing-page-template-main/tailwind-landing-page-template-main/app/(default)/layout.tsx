@@ -1,5 +1,5 @@
 "use client";
-
+import { I18nProvider } from "@/lib/i18n/i18n-context"
 import { useEffect } from "react";
 
 import AOS from "aos";
