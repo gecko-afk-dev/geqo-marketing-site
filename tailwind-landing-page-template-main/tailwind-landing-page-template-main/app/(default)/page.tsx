@@ -1,3 +1,4 @@
+"use client";
 export const metadata = {
   title: "GEQO | Home",
   description: "0% Commission WhatsApp Ordering System",
