@@ -46,7 +46,7 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
 
   // Avoid hydration mismatch by waiting for mount
   if (!isMounted) {
-    return <div style={{ opacity: 0 }}>{children}</div>;
+    return null;
   }
 
   return (
