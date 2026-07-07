@@ -15,6 +15,7 @@ export default function SignupForm() {
   });
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  const [isReadOnly, setIsReadOnly] = useState(false);
 
   // Read card code from URL
   useEffect(() => {
@@ -22,10 +23,20 @@ export default function SignupForm() {
     const cardParam = params.get("card");
     if (cardParam) {
       setFormData(prev => ({ ...prev, card_code: cardParam }));
+      setIsReadOnly(true);
+      
+      // Smoothly scroll down to the claim form after rendering completes
+      setTimeout(() => {
+        const element = document.getElementById("claim-form");
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }, 300);
     }
   }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (isReadOnly && e.target.name === "card_code") return;
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
@@ -137,9 +148,23 @@ export default function SignupForm() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-1 text-gray-300" htmlFor="card_code">
-                      {t("form_field_card")} <span className="text-red-500">*</span>
-                    </label>
+                    <div className="flex justify-between items-center mb-1">
+                      <label className="block text-sm font-medium text-gray-300" htmlFor="card_code">
+                        {t("form_field_card")} <span className="text-red-500">*</span>
+                      </label>
+                      {isReadOnly && (
+                        <span className="text-[11px] font-bold text-green-400 bg-green-500/10 px-2 py-0.5 rounded border border-green-500/20 flex items-center gap-1 select-none">
+                          <span>✓</span>
+                          <span>
+                            {locale === "ar" 
+                              ? "تم إدخال الرمز وقفل التعديل" 
+                              : (locale === "fr" 
+                                  ? "Code Appliqué & Verrouillé" 
+                                  : "Code Applied & Locked")}
+                          </span>
+                        </span>
+                      )}
+                    </div>
                     <input
                       id="card_code"
                       name="card_code"
@@ -149,8 +174,12 @@ export default function SignupForm() {
                       placeholder="GEQO-XXXXXX"
                       value={formData.card_code}
                       onChange={handleChange}
-                      readOnly={!!new URLSearchParams(typeof window !== "undefined" ? window.location.search : "").get("card")}
-                      className="form-input w-full bg-gray-800 border-gray-700 text-white focus:border-green-500 read-only:bg-gray-700 read-only:text-gray-400"
+                      readOnly={isReadOnly}
+                      className={`form-input w-full border-gray-700 text-white focus:border-green-500 transition-all ${
+                        isReadOnly 
+                          ? "bg-gray-800/40 text-gray-400 border-dashed cursor-not-allowed select-none" 
+                          : "bg-gray-800"
+                      }`}
                     />
                   </div>
                 </div>
