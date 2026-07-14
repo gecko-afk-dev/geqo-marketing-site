@@ -1,4 +1,2 @@
-# Proxy all /api/* requests to the backend on the same domain.
-# This avoids ad-blocker ERR_BLOCKED_BY_CLIENT on cross-domain API calls
-# and eliminates CORS entirely for browser clients.
-/api/*  https://api.mygeqo.com/api/:splat  200
+# No proxy rules here — external API proxying is handled by
+# Next.js Route Handlers (app/api/v1/public/beta-signup/route.ts).
