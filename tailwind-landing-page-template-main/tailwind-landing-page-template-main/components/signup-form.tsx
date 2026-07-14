@@ -45,8 +45,18 @@ export default function SignupForm() {
     setStatus("loading");
     setErrorMessage("");
 
+    // Fail fast if the API URL env var was not set at build time.
+    // This prevents the silent "undefined" in the URL bug.
+    const apiBase = process.env.NEXT_PUBLIC_API_URL;
+    if (!apiBase) {
+      console.error("[SignupForm] NEXT_PUBLIC_API_URL is not defined. Check your .env.local file.");
+      setStatus("error");
+      setErrorMessage(t("error_default"));
+      return;
+    }
+
     try {
-      const response = await fetch(process.env.NEXT_PUBLIC_API_URL + "/api/v1/public/beta-signup", {
+      const response = await fetch(`${apiBase}/api/v1/public/beta-signup`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...formData, locale }),
