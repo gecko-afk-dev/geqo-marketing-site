@@ -4,6 +4,12 @@ import { useState, useEffect } from "react";
 import { useTranslation } from "@/lib/i18n/use-translation";
 import SuccessOverlay from "./success-overlay";
 
+// Public API base URL. NEXT_PUBLIC_* vars are baked in at build time; if the env
+// var was absent during the build it will be undefined in the bundle. We fall back
+// to the known production URL so existing deployments keep working without a rebuild.
+const API_BASE =
+  process.env.NEXT_PUBLIC_API_URL ?? "https://api.mygeqo.com";
+
 export default function SignupForm() {
   const { t, locale } = useTranslation();
   const [formData, setFormData] = useState({
@@ -45,22 +51,13 @@ export default function SignupForm() {
     setStatus("loading");
     setErrorMessage("");
 
-    // Fail fast if the API URL env var was not set at build time.
-    // This prevents the silent "undefined" in the URL bug.
-    const apiBase = process.env.NEXT_PUBLIC_API_URL;
-    if (!apiBase) {
-      console.error("[SignupForm] NEXT_PUBLIC_API_URL is not defined. Check your .env.local file.");
-      setStatus("error");
-      setErrorMessage(t("error_default"));
-      return;
-    }
-
     try {
-      const response = await fetch(`${apiBase}/api/v1/public/beta-signup`, {
+      const response = await fetch(`${API_BASE}/api/v1/public/beta-signup`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...formData, locale }),
       });
+
 
       if (!response.ok) {
         const errorData = await response.json().catch(() => null);
