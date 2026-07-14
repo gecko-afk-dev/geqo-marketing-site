@@ -4,11 +4,15 @@ import { useState, useEffect } from "react";
 import { useTranslation } from "@/lib/i18n/use-translation";
 import SuccessOverlay from "./success-overlay";
 
-// Public API base URL. NEXT_PUBLIC_* vars are baked in at build time; if the env
-// var was absent during the build it will be undefined in the bundle. We fall back
-// to the known production URL so existing deployments keep working without a rebuild.
+// Route API calls through the same origin (/api → proxied to api.mygeqo.com by Cloudflare Pages).
+// This prevents ad blockers from blocking cross-domain requests (ERR_BLOCKED_BY_CLIENT)
+// and eliminates CORS for browser clients. In local dev, point directly to the local backend.
 const API_BASE =
-  process.env.NEXT_PUBLIC_API_URL ?? "https://api.mygeqo.com";
+  process.env.NEXT_PUBLIC_API_URL ??
+  (typeof window !== "undefined" && window.location.hostname === "localhost"
+    ? "http://localhost:8000"
+    : "");  // Empty string = same origin; /api/* is proxied by Cloudflare _redirects
+
 
 export default function SignupForm() {
   const { t, locale } = useTranslation();
