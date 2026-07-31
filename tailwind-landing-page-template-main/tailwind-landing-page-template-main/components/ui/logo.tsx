@@ -12,7 +12,7 @@ export default function Logo() {
       <Image
         src="/geqo-logo.svg"
         alt="GEQO logo"
-        width={38}
+        width={36}
         height={34}
         priority
         className="h-[34px] w-auto"
