@@ -2,38 +2,101 @@
 
 import { useTranslation } from "@/lib/i18n/use-translation";
 
-// ─── WhatsApp Chat Mockup ────────────────────────────────────────────────────
+// ─── WhatsApp Flow Modal Mockup ──────────────────────────────────────────────
 function WhatsAppPanel() {
   return (
-    <div className="relative w-full max-w-[220px] rounded-[2rem] border border-slate-600/60 bg-[#111b21] p-2 shadow-2xl shadow-green-900/20">
-      {/* Status bar */}
-      <div className="mb-1 flex items-center gap-2 rounded-t-[1.5rem] bg-[#1f2c33] px-3 py-2">
-        <div className="h-8 w-8 rounded-full bg-gradient-to-br from-green-400 to-emerald-600 flex items-center justify-center text-xs font-bold text-white">G</div>
-        <div>
-          <div className="text-[10px] font-semibold text-white">GEQO Order Bot</div>
-          <div className="text-[9px] text-green-400">● Online</div>
+    <div className="relative w-full rounded-[2rem] border border-slate-600/60 bg-[#111b21] shadow-2xl shadow-green-900/20 overflow-hidden">
+      {/* WA chrome — top bar */}
+      <div className="flex items-center gap-2 bg-[#1f2c33] px-3 py-2">
+        <div className="h-7 w-7 rounded-full bg-gradient-to-br from-green-400 to-emerald-600 flex items-center justify-center text-[10px] font-bold text-white flex-shrink-0">G</div>
+        <div className="min-w-0">
+          <div className="text-[10px] font-semibold text-white truncate">GEQO Order Bot</div>
+          <div className="text-[8px] text-green-400">● Online</div>
         </div>
       </div>
-      {/* Chat bubbles */}
-      <div className="space-y-2 px-1 py-2">
-        <div className="max-w-[80%] rounded-xl rounded-tl-none bg-[#1f2c33] px-3 py-1.5 text-[9px] text-white shadow-sm">
-          🌯 Marhba! Comment puis-je vous aider?
+
+      {/* Dimmed chat background — peeking behind the modal */}
+      <div className="relative px-2 pt-2 pb-0">
+        {/* Blurred-out chat bubbles (background context) */}
+        <div className="space-y-1.5 opacity-30 blur-[1px] select-none pointer-events-none">
+          <div className="max-w-[75%] rounded-xl rounded-tl-none bg-[#1f2c33] px-2.5 py-1 text-[8px] text-white">
+            🍔 Voici notre menu du jour…
+          </div>
+          <div className="ml-auto max-w-[70%] rounded-xl rounded-tr-none bg-[#005c4b] px-2.5 py-1 text-[8px] text-white">
+            Tacos Maxi stp!
+          </div>
         </div>
-        <div className="ml-auto max-w-[80%] rounded-xl rounded-tr-none bg-[#005c4b] px-3 py-1.5 text-[9px] text-white shadow-sm">
-          Je veux commander 2 burgers 🍔
-        </div>
-        <div className="max-w-[80%] rounded-xl rounded-tl-none bg-[#1f2c33] px-3 py-1.5 text-[9px] text-white shadow-sm">
-          ✅ Commande confirmée! Total: 140 MAD
-        </div>
-        <div className="ml-auto max-w-[75%] rounded-xl rounded-tr-none bg-[#005c4b] px-3 py-1.5 text-[9px] text-white shadow-sm">
-          Parfait, merci! 🙏
-        </div>
-      </div>
-      {/* Input bar */}
-      <div className="mt-1 flex items-center gap-1 rounded-b-[1.5rem] bg-[#1f2c33] px-2 py-1.5">
-        <div className="h-5 flex-1 rounded-full bg-[#2a3942] text-[8px] text-slate-500 leading-5 px-2">Message…</div>
-        <div className="h-5 w-5 rounded-full bg-green-500 flex items-center justify-center">
-          <svg className="h-2.5 w-2.5 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+
+        {/* ── WhatsApp Flow bottom-sheet modal ── */}
+        <div className="relative -mx-2 mt-2 rounded-t-2xl bg-white shadow-2xl">
+          {/* Drag handle */}
+          <div className="flex justify-center pt-2 pb-1">
+            <div className="h-1 w-8 rounded-full bg-slate-200" />
+          </div>
+
+          {/* Modal header */}
+          <div className="flex items-center border-b border-slate-100 px-3 py-2">
+            {/* Close × */}
+            <button className="flex h-5 w-5 items-center justify-center rounded-full bg-slate-100 text-[9px] font-bold text-slate-500 leading-none flex-shrink-0">
+              ✕
+            </button>
+            <span className="flex-1 text-center text-[11px] font-bold text-slate-800">
+              Customize Order
+            </span>
+            {/* Spacer to keep title centered */}
+            <div className="h-5 w-5 flex-shrink-0" />
+          </div>
+
+          {/* Product info */}
+          <div className="px-3 pt-3">
+            <div className="flex items-start justify-between">
+              <div>
+                <div className="text-[12px] font-extrabold text-slate-900 leading-tight">Tacos Maxi</div>
+                <div className="text-[9px] text-slate-400 mt-0.5">Poulet · Sauce Fromagère · Frites</div>
+              </div>
+              <div className="text-[12px] font-extrabold text-emerald-600 flex-shrink-0">65 MAD</div>
+            </div>
+          </div>
+
+          {/* Divider */}
+          <div className="mx-3 mt-2.5 border-t border-slate-100" />
+
+          {/* Interactive elements */}
+          <div className="space-y-2 px-3 pt-2.5">
+            {/* Fake dropdown */}
+            <div>
+              <div className="mb-0.5 text-[8px] font-semibold uppercase tracking-wider text-slate-400">Viande</div>
+              <div className="flex items-center justify-between rounded-lg border border-slate-200 bg-slate-50 px-2.5 py-1.5">
+                <span className="text-[9px] text-slate-600">Poulet</span>
+                <span className="text-[8px] text-slate-400">▾</span>
+              </div>
+            </div>
+
+            {/* Fake checkboxes */}
+            <div>
+              <div className="mb-0.5 text-[8px] font-semibold uppercase tracking-wider text-slate-400">Extras</div>
+              <div className="space-y-1">
+                <label className="flex items-center gap-1.5 cursor-pointer">
+                  <div className="h-3.5 w-3.5 rounded flex-shrink-0 bg-emerald-500 flex items-center justify-center">
+                    <svg className="h-2 w-2 text-white" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M2 6l3 3 5-5"/></svg>
+                  </div>
+                  <span className="text-[9px] text-slate-700">Extra Cheese</span>
+                  <span className="ml-auto text-[8px] font-semibold text-emerald-600">+5 MAD</span>
+                </label>
+                <label className="flex items-center gap-1.5 cursor-pointer">
+                  <div className="h-3.5 w-3.5 rounded-sm flex-shrink-0 border-2 border-slate-300 bg-white" />
+                  <span className="text-[9px] text-slate-500">Sauce Algérienne</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          {/* CTA button */}
+          <div className="px-3 pt-3 pb-3">
+            <button className="w-full rounded-xl bg-gradient-to-b from-emerald-500 to-emerald-600 py-2.5 text-[10px] font-extrabold tracking-wide text-white shadow-lg shadow-emerald-500/30">
+              Add to Cart — 70 MAD
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -48,7 +111,7 @@ function KitchenPanel() {
     { id: "#1044", item: "3x Pizza Marg.", time: "1m", status: "bg-red-500" },
   ];
   return (
-    <div className="w-full max-w-[260px] rounded-2xl border border-slate-600/50 bg-slate-900 p-3 shadow-2xl shadow-indigo-900/20">
+    <div className="w-full rounded-2xl border border-slate-600/50 bg-slate-900 p-3 shadow-2xl shadow-indigo-900/20">
       <div className="mb-2 flex items-center justify-between">
         <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Kitchen Display</span>
         <span className="text-[9px] text-emerald-400">● Live</span>
@@ -107,12 +170,13 @@ export default function HeroHome() {
 
   return (
     <section className="relative overflow-hidden">
-      {/* Fixed parallax background — daytime Casablanca */}
+      {/* Background — daytime Casablanca */}
+      {/* NOTE: background-attachment:fixed is intentionally omitted — it is */}
+      {/* broken on iOS Safari and causes the image to disappear on mobile. */}
       <div
         className="absolute inset-0 -z-10"
         style={{
           backgroundImage: "url('/images/hero-bg-daytime.jpg')",
-          backgroundAttachment: "fixed",
           backgroundSize: "cover",
           backgroundPosition: "center top",
         }}
@@ -183,7 +247,7 @@ export default function HeroHome() {
               <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-slate-800 to-slate-900 opacity-5 blur-2xl" />
 
               {/* Outer device container */}
-              <div className="relative flex w-full max-w-md flex-col items-center gap-5 rounded-3xl border border-slate-700/20 bg-gradient-to-tr from-slate-800/[0.06] to-slate-900/[0.04] p-6 shadow-2xl ring-1 ring-white/60 backdrop-blur-sm">
+              <div className="relative flex w-full flex-col items-center gap-5 rounded-3xl border border-slate-700/20 bg-gradient-to-tr from-slate-800/[0.06] to-slate-900/[0.04] p-4 sm:p-6 shadow-2xl ring-1 ring-white/60 backdrop-blur-sm">
 
                 {/* Section label */}
                 <div className="mb-2 self-start">
@@ -193,9 +257,15 @@ export default function HeroHome() {
                 </div>
 
                 {/* Stacked mockups */}
-                <div className="flex w-full flex-col items-center gap-4 sm:flex-row sm:items-end sm:justify-center">
-                  <WhatsAppPanel />
-                  <KitchenPanel />
+                <div className="flex w-full flex-col items-center gap-4 md:flex-row md:items-end md:justify-center">
+                  {/* WhatsApp panel scales to full width on mobile */}
+                  <div className="w-full max-w-[260px] sm:max-w-xs md:max-w-[220px]">
+                    <WhatsAppPanel />
+                  </div>
+                  {/* Kitchen panel scales to full width on mobile */}
+                  <div className="w-full max-w-[300px] sm:max-w-sm md:max-w-[260px]">
+                    <KitchenPanel />
+                  </div>
                 </div>
 
                 {/* Bottom label bar */}
