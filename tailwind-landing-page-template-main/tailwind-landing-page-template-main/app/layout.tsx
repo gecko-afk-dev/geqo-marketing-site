@@ -20,10 +20,10 @@ export const metadata = {
   description: "Automate your entire ordering system directly inside WhatsApp. 0% Commission.",
   icons: {
     // SVG favicon — scales crisply at every size in modern browsers
-    icon: [{ url: "/geqo-logo.svg", type: "image/svg+xml" }],
+    icon: [{ url: "/images/icon.svg", type: "image/svg+xml" }],
     // Legacy .ico fallback for older browsers / Windows taskbar
     shortcut: "/favicon.ico",
-    apple: "/geqo-logo.svg",
+    apple: "/images/icon.svg",
   },
 };
 
