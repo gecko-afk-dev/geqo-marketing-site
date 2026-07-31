@@ -18,6 +18,13 @@ const arabic = Noto_Sans_Arabic({
 export const metadata = {
   title: "GEQO | 0% Commission WhatsApp Ordering",
   description: "Automate your entire ordering system directly inside WhatsApp. 0% Commission.",
+  icons: {
+    // SVG favicon — scales crisply at every size in modern browsers
+    icon: [{ url: "/geqo-logo.svg", type: "image/svg+xml" }],
+    // Legacy .ico fallback for older browsers / Windows taskbar
+    shortcut: "/favicon.ico",
+    apple: "/geqo-logo.svg",
+  },
 };
 
 export default function RootLayout({
