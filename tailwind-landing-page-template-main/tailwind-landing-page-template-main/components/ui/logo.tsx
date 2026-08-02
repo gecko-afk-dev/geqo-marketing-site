@@ -10,12 +10,12 @@ export default function Logo() {
     >
       {/* SVG mark — rendered at fixed height, width scales with viewBox aspect */}
       <Image
-        src="/geqo-logo.svg"
-        alt="GEQO logo"
+        src="/images/icon.svg"
+        alt="GEQO icon"
         width={36}
-        height={34}
+        height={36}
         priority
-        className="h-[34px] w-auto"
+        className="h-9 w-9"
       />
       {/* Wordmark fallback text (screen-readers + no-img fallback) */}
       <span className="sr-only">GEQO</span>
