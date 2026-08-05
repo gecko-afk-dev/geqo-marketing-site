@@ -1,23 +1,22 @@
 export const metadata = {
-  title: "GEQO | 0% Commission WhatsApp Ordering for Moroccan Restaurants",
-  description:
-    "Eliminate delivery aggregator commissions with a flat 399 MAD/month. Automate your entire ordering workflow directly inside WhatsApp — no app required. Live in Casablanca, Rabat & Settat.",
+  title: "GEQO | 0% Commission WhatsApp Ordering",
+  description: "Automate your entire ordering workflow directly inside WhatsApp. 0% Commission.",
 };
 
-import HeroHome from "@/components/hero-home";
-import RoiCalculator from "@/components/roi-calculator";
-import BentoFeatures from "@/components/bento-features";
-import HowItWorks from "@/components/how-it-works";
-import SignupForm from "@/components/signup-form";
+import Hero from "@/components/Hero";
+import MetricsGrid from "@/components/MetricsGrid";
+import RoiCalculator from "@/components/RoiCalculator";
+import FeatureMatrix from "@/components/FeatureMatrix";
+import BetaClaimFooter from "@/components/BetaClaimFooter";
 
 export default function Home() {
   return (
     <>
-      <HeroHome />
-      <BentoFeatures />
+      <Hero />
+      <MetricsGrid />
       <RoiCalculator />
-      <HowItWorks />
-      <SignupForm />
+      <FeatureMatrix />
+      <BetaClaimFooter />
     </>
   );
 }

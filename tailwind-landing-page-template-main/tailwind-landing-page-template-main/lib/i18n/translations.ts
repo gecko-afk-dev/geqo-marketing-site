@@ -1,10 +1,10 @@
 export const translations = {
   en: {
-    hero_headline: "Stop Giving 30% of Your Revenue to Delivery Apps.",
+    hero_headline: "Stop Giving 25% of Your Revenue to Delivery Apps.",
     hero_subheadline: "Automate your entire ordering system directly inside WhatsApp. 0% Commission. Keep 100% of your hard-earned profits.",
     cta_button: "Claim My Free Beta Month ➔",
     pain_title: "Pain vs. Relief",
-    pain_1_before: "30% Aggregator Tax",
+    pain_1_before: "25% Aggregator Tax",
     pain_1_after: "0% Commission SaaS",
     pain_1_desc: "A predictable flat monthly fee. Every Dirham stays in your till.",
     pain_2_before: "WhatsApp Chat Chaos",
@@ -38,14 +38,20 @@ export const translations = {
     error_default: "An error occurred. Please try again.",
     footer_powered: "Powered via official Meta Cloud API Integration Architecture.",
     footer_location: "Engineered locally for the Moroccan culinary market. Casablanca — Settat.",
-    footer_copyright: "© 2026 GEQO. All rights reserved."
+    footer_copyright: "© 2026 GEQO. All rights reserved.",
+    calc_title: "// PROFITABILITY SIMULATOR",
+    calc_slider1: "Orders delivered per day",
+    calc_slider2: "Average basket size (MAD)",
+    calc_aggregator: "Aggregators Commission (25%)",
+    calc_geqo: "GEQO Cost (3.0 MAD fixed)",
+    calc_net: "NET GAIN IN YOUR POCKET"
   },
   fr: {
-    hero_headline: "Arrêtez de Donner 30% de Vos Revenus aux Apps de Livraison.",
+    hero_headline: "Arrêtez de Donner 25% de Vos Revenus aux Apps de Livraison.",
     hero_subheadline: "Automatisez l'ensemble de votre système de commande directement sur WhatsApp. 0% de commission. Gardez 100% de vos profits.",
     cta_button: "Réclamer mon Mois Bêta Gratuit ➔",
     pain_title: "Problème vs. Solution",
-    pain_1_before: "Taxe des Agrégateurs (30%)",
+    pain_1_before: "Taxe des Agrégateurs (25%)",
     pain_1_after: "SaaS Sans Commission (0%)",
     pain_1_desc: "Un abonnement mensuel fixe prévisible. Chaque Dirham reste dans votre caisse.",
     pain_2_before: "Chaos des Chats WhatsApp",
@@ -79,14 +85,20 @@ export const translations = {
     error_default: "Une erreur est survenue. Veuillez réessayer.",
     footer_powered: "Propulsé par l'architecture officielle Meta Cloud API.",
     footer_location: "Conçu localement pour le marché culinaire marocain. Casablanca — Settat.",
-    footer_copyright: "© 2026 GEQO. Tous droits réservés."
+    footer_copyright: "© 2026 GEQO. Tous droits réservés.",
+    calc_title: "// SIMULATEUR DE RENTABILITÉ",
+    calc_slider1: "Commandes livrées par jour",
+    calc_slider2: "Panier moyen par commande (MAD)",
+    calc_aggregator: "Commission Agrégateurs (25%)",
+    calc_geqo: "Coût GEQO (3.0 MAD fixe)",
+    calc_net: "NET GAIN DANS VOTRE POCHE"
   },
   ar: {
-    hero_headline: "توقف عن إعطاء 30% من إيراداتك لتطبيقات التوصيل.",
+    hero_headline: "توقف عن إعطاء 25% من إيراداتك لتطبيقات التوصيل.",
     hero_subheadline: "قم بأتمتة نظام الطلب بالكامل مباشرة على واتساب. 0% عمولة. احتفظ بـ 100% من أرباحك التي كسبتها بشق الأنفس.",
     cta_button: "احصل على شهر تجريبي مجاني ➔",
     pain_title: "المشكلة مقابل الحل",
-    pain_1_before: "ضريبة تطبيقات التوصيل 30%",
+    pain_1_before: "ضريبة تطبيقات التوصيل 25%",
     pain_1_after: "0% عمولة",
     pain_1_desc: "رسوم شهرية ثابتة يمكن التنبؤ بها. كل درهم يبقى في خزانتك.",
     pain_2_before: "فوضى محادثات واتساب",
@@ -120,7 +132,13 @@ export const translations = {
     error_default: "حدث خطأ. يرجى المحاولة مرة أخرى.",
     footer_powered: "مدعوم عبر الهندسة الرسمية لـ Meta Cloud API.",
     footer_location: "مصمم محليًا لسوق الطهي المغربي. الدار البيضاء — سطات.",
-    footer_copyright: "© 2026 GEQO. جميع الحقوق محفوظة."
+    footer_copyright: "© 2026 GEQO. جميع الحقوق محفوظة.",
+    calc_title: "// محاكي الربحية",
+    calc_slider1: "الطلبات المسلمة يومياً",
+    calc_slider2: "متوسط سلة الطلب (درهم)",
+    calc_aggregator: "عمولة التطبيقات (25%)",
+    calc_geqo: "تكلفة GEQO (3.0 درهم ثابت)",
+    calc_net: "صافي الربح في جيبك"
   }
 } as const;
 
