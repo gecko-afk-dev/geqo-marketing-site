@@ -145,7 +145,7 @@ export const translations = {
     calc_net: "صافي الربح في جيبك",
 
     // Parallax
-    parallax_quote: "مصمم للوجبات السريعة المغربية. مبني لتحمل ضغط أوقات الذروة.",
+    parallax_quote: "مصمم للمطاعم المغربية. مبني لتحمل ضغط أوقات الذروة.",
 
     // Features
     feat_1_title: "مسار واتساب الهجين",

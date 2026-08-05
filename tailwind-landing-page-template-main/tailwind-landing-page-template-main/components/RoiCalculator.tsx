@@ -102,7 +102,7 @@ export default function RoiCalculator() {
                 <div className="text-sm font-mono text-neutral-400 rtl:text-right text-left max-w-[60%]">
                   {t.calc_aggregator}
                 </div>
-                <div className="text-2xl font-bold text-red-400">
+                <div className="text-2xl font-bold text-red-400" dir="ltr">
                   - <AnimatedCounter value={aggregatorCost} /> MAD
                 </div>
               </div>
@@ -111,7 +111,7 @@ export default function RoiCalculator() {
                 <div className="text-sm font-mono text-neutral-400 rtl:text-right text-left max-w-[60%]">
                   {t.calc_geqo}
                 </div>
-                <div className="text-2xl font-bold text-neutral-300">
+                <div className="text-2xl font-bold text-neutral-300" dir="ltr">
                   - <AnimatedCounter value={geqoCost} /> MAD
                 </div>
               </div>
@@ -121,7 +121,7 @@ export default function RoiCalculator() {
               <div className="text-sm font-bold text-emerald-500/80 mb-2 rtl:text-right text-left uppercase tracking-widest">
                 {t.calc_net}
               </div>
-              <div className="text-5xl lg:text-6xl font-black text-emerald-500 flex items-baseline justify-end rtl:justify-start gap-2">
+              <div className="text-5xl lg:text-6xl font-black text-emerald-500 flex flex-row items-baseline justify-end rtl:justify-end gap-2 w-full" dir="ltr">
                 <span>+</span>
                 <AnimatedCounter value={netGain} />
                 <span className="text-3xl font-bold text-emerald-500/70 ml-2">MAD</span>
