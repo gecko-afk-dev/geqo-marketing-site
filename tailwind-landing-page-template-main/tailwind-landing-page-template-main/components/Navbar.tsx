@@ -21,7 +21,7 @@ export default function Navbar() {
           {/* Logo (col 1-3) */}
           <div className="col-span-6 md:col-span-3">
             <Link href="/" className="flex items-center">
-              <img src="/geqo-logo.svg" alt="GEQO" className="h-9 w-auto object-contain" />
+              <img src="/geqo-logo.svg?v=2" alt="GEQO" className="h-10 w-auto object-contain py-1" />
             </Link>
           </div>
           

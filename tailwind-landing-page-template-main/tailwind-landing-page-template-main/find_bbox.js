@@ -1,8 +1,8 @@
 const fs = require('fs');
 const svg = fs.readFileSync('public/geqo-logo.svg', 'utf8');
 
-// A better parser for path data to get exact bounding box
-const paths = [...svg.matchAll(/d="([^"]+)"/g)].map(m => m[1]);
+// A very naive parser just to find min/max coordinates
+let currentX = 0, currentY = 0;
 let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
 
 function update(x, y) {
@@ -12,10 +12,10 @@ function update(x, y) {
     if (y > maxY) maxY = y;
 }
 
+const paths = [...svg.matchAll(/d="([^"]+)"/g)].map(m => m[1]);
 for (const d of paths) {
     const tokens = d.match(/[a-zA-Z]+|[-+]?[0-9]*\.?[0-9]+/g);
     let command = '';
-    let currentX = 0, currentY = 0;
     for (let i = 0; i < tokens.length; i++) {
         const token = tokens[i];
         if (/[a-zA-Z]/.test(token)) {
@@ -42,10 +42,6 @@ for (const d of paths) {
                 currentX = x; currentY = y;
             }
             update(currentX, currentY);
-            
-            // Re-use command for implicit repeated commands (like multiple coords after M or l)
-            if (command === 'M') command = 'L';
-            if (command === 'm') command = 'l';
         }
     }
 }

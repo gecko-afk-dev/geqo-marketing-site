@@ -1,17 +1,7 @@
 const fs = require('fs');
 const svg = fs.readFileSync('public/geqo-logo.svg', 'utf8');
 
-// A better parser for path data to get exact bounding box
 const paths = [...svg.matchAll(/d="([^"]+)"/g)].map(m => m[1]);
-let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
-
-function update(x, y) {
-    if (x < minX) minX = x;
-    if (x > maxX) maxX = x;
-    if (y < minY) minY = y;
-    if (y > maxY) maxY = y;
-}
-
 for (const d of paths) {
     const tokens = d.match(/[a-zA-Z]+|[-+]?[0-9]*\.?[0-9]+/g);
     let command = '';
@@ -25,28 +15,24 @@ for (const d of paths) {
             if (command === 'M' || command === 'L') {
                 x = parseFloat(token);
                 y = parseFloat(tokens[++i]);
-                currentX = x; currentY = y;
             } else if (command === 'm' || command === 'l') {
                 x = currentX + parseFloat(token);
                 y = currentY + parseFloat(tokens[++i]);
-                currentX = x; currentY = y;
             } else if (command === 'C') {
                 x = parseFloat(tokens[i+4]);
                 y = parseFloat(tokens[i+5]);
                 i += 5;
-                currentX = x; currentY = y;
             } else if (command === 'c') {
                 x = currentX + parseFloat(tokens[i+4]);
                 y = currentY + parseFloat(tokens[i+5]);
                 i += 5;
-                currentX = x; currentY = y;
             }
-            update(currentX, currentY);
-            
-            // Re-use command for implicit repeated commands (like multiple coords after M or l)
+            currentX = x; currentY = y;
+            if (currentY < 300) {
+                console.log(`Low Y detected: ${currentY} from command ${command}`);
+            }
             if (command === 'M') command = 'L';
             if (command === 'm') command = 'l';
         }
     }
 }
-console.log(`minX: ${minX}, minY: ${minY}, maxX: ${maxX}, maxY: ${maxY}`);
