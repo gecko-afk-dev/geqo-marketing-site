@@ -54,6 +54,8 @@ export const translations = {
     form_email: "Email Address",
     form_submit_beta: "Activate Beta",
 
+    footer_location: "Casablanca, Morocco",
+    footer_powered: "Backed by WhatsApp Cloud API",
     footer_copyright: "© 2026 GEQO. All rights reserved."
   },
   fr: {
@@ -111,6 +113,8 @@ export const translations = {
     form_email: "Adresse Email",
     form_submit_beta: "Activer Mon Restaurant",
 
+    footer_location: "Casablanca, Maroc",
+    footer_powered: "Propulsé par WhatsApp Cloud API",
     footer_copyright: "© 2026 GEQO. Tous droits réservés."
   },
   ar: {
@@ -168,6 +172,8 @@ export const translations = {
     form_email: "البريد الإلكتروني",
     form_submit_beta: "تفعيل مطعمي",
 
+    footer_location: "الدار البيضاء، المغرب",
+    footer_powered: "مدعوم من WhatsApp Cloud API",
     footer_copyright: "© 2026 GEQO. جميع الحقوق محفوظة."
   }
 } as const;

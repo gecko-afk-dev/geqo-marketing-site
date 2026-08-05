@@ -9,6 +9,7 @@ import ParallaxBreak from "@/components/ParallaxBreak";
 import RoiCalculator from "@/components/RoiCalculator";
 import FeatureMatrix from "@/components/FeatureMatrix";
 import BetaClaimFooter from "@/components/BetaClaimFooter";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
       <RoiCalculator />
       <FeatureMatrix />
       <BetaClaimFooter />
+      <Footer />
     </>
   );
 }
