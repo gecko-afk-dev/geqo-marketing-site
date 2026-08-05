@@ -2,23 +2,28 @@
 
 import { motion } from "framer-motion";
 import { swissContainerVariants, swissItemVariants } from "@/lib/motion";
+import { useI18nContext } from "@/lib/i18n/i18n-context";
+import { translations } from "@/lib/i18n/translations";
 
 export default function MetricsGrid() {
+  const { locale } = useI18nContext();
+  const t = translations[locale];
+
   const metrics = [
     {
-      value: "3.0 MAD",
+      value: t.metric_1_val,
       color: "text-amber-500",
-      description: "Micro-Toll Fixe par Commande. 0% de commission sur votre chiffre d'affaires."
+      description: t.metric_1_desc
     },
     {
-      value: "-75 MAD",
+      value: t.metric_2_val,
       color: "text-emerald-500",
-      description: "Période de Grâce (25 Commandes). Votre cuisine ne s'arrête jamais en plein rush."
+      description: t.metric_2_desc
     },
     {
-      value: "0 MAD",
+      value: t.metric_3_val,
       color: "text-neutral-100",
-      description: "Frais de Matériel. Fonctionne sur n'importe quel téléphone, tablette ou PC existant."
+      description: t.metric_3_desc
     }
   ];
 
@@ -38,7 +43,7 @@ export default function MetricsGrid() {
               variants={swissItemVariants}
               className="col-span-12 md:col-span-4 bg-[#141414] border border-neutral-800 p-8 hover:-translate-y-1 transition-transform duration-300 flex flex-col justify-between"
             >
-              <div className={`text-5xl font-black mb-6 ${metric.color}`}>
+              <div className={`text-5xl font-black mb-6 rtl:text-right text-left ${metric.color}`}>
                 {metric.value}
               </div>
               <p className="text-neutral-400 font-medium rtl:text-right text-left">

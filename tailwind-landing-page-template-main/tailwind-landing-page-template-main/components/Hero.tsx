@@ -4,11 +4,14 @@ import { motion } from "framer-motion";
 import { swissContainerVariants, swissItemVariants } from "@/lib/motion";
 import { useI18nContext } from "@/lib/i18n/i18n-context";
 import { translations } from "@/lib/i18n/translations";
-import Link from "next/link";
 
 export default function Hero() {
   const { locale } = useI18nContext();
   const t = translations[locale];
+
+  const scrollToBeta = () => {
+    document.getElementById('beta-claim-form')?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <section className="pt-24 pb-16 overflow-hidden">
@@ -22,8 +25,8 @@ export default function Hero() {
         >
           {/* Left Column */}
           <div className="col-span-12 lg:col-span-7 space-y-6">
-            <motion.div variants={swissItemVariants} className="font-mono text-xs uppercase tracking-widest text-amber-500">
-              // LA PLATEFORME WHATSAPP 0% COMMISSION
+            <motion.div variants={swissItemVariants} className="font-mono text-xs uppercase tracking-widest text-amber-500 rtl:text-right text-left">
+              {t.hero_tag}
             </motion.div>
             
             <motion.h1 
@@ -44,17 +47,17 @@ export default function Hero() {
               variants={swissItemVariants}
               className="flex flex-col sm:flex-row gap-4 pt-4"
             >
-              <Link 
-                href="/claim"
+              <button 
+                onClick={scrollToBeta}
                 className="bg-amber-500 text-neutral-950 font-bold px-6 py-4 hover:bg-amber-400 transition-colors text-center"
               >
-                Rejoindre la Bêta (Carte Invitation)
-              </Link>
+                {t.cta_join_beta}
+              </button>
               <button 
                 onClick={() => document.getElementById('roi-calculator')?.scrollIntoView({ behavior: 'smooth' })}
                 className="border border-neutral-700 hover:border-neutral-500 text-neutral-200 px-6 py-4 transition-colors text-center font-medium"
               >
-                Calculer mes Économies
+                {t.hero_btn_calc}
               </button>
             </motion.div>
           </div>
@@ -66,34 +69,34 @@ export default function Hero() {
               className="bg-[#141414] border border-neutral-800 rounded-3xl p-6 shadow-2xl relative max-w-sm mx-auto"
             >
               {/* Fake Phone Header */}
-              <div className="flex justify-between items-center border-b border-neutral-800 pb-4 mb-6">
-                <div className="flex items-center gap-3">
+              <div className="flex justify-between items-center border-b border-neutral-800 pb-4 mb-6 rtl:flex-row-reverse">
+                <div className="flex items-center gap-3 rtl:flex-row-reverse">
                   <div className="w-10 h-10 bg-amber-500 rounded-full flex items-center justify-center font-bold text-neutral-950">G.</div>
-                  <div>
-                    <div className="text-sm font-bold text-neutral-50">GEQO Bot</div>
-                    <div className="text-xs text-emerald-500">En ligne</div>
+                  <div className="rtl:text-right text-left">
+                    <div className="text-sm font-bold text-neutral-50">{t.hero_bot_name}</div>
+                    <div className="text-xs text-emerald-500">{t.hero_bot_status}</div>
                   </div>
                 </div>
               </div>
 
               {/* Chat Bubble */}
-              <div className="space-y-4">
-                <div className="bg-[#1F2937] rounded-2xl rounded-tl-sm p-4 text-sm text-neutral-200 max-w-[85%]">
-                  Bienvenue! Votre commande est prête à être saisie. Cliquez ci-dessous pour ouvrir le menu sécurisé.
+              <div className="space-y-4 flex flex-col items-start rtl:items-end">
+                <div className="bg-[#1F2937] rounded-2xl rounded-tl-sm rtl:rounded-tl-2xl rtl:rounded-tr-sm p-4 text-sm text-neutral-200 max-w-[85%] rtl:text-right text-left">
+                  {t.hero_bot_msg}
                 </div>
                 
                 {/* JWT Magic Link Button */}
-                <div className="bg-amber-500/10 border border-amber-500/30 rounded-xl p-4 max-w-[85%]">
+                <div className="bg-amber-500/10 border border-amber-500/30 rounded-xl p-4 w-full max-w-[85%]">
                   <button className="w-full bg-amber-500 text-neutral-950 font-bold py-3 rounded-lg text-sm transition-transform active:scale-95">
-                    Ouvrir le Menu ➔
+                    {t.hero_bot_btn}
                   </button>
                 </div>
                 
                 {/* Mini Item Card */}
-                <div className="bg-[#0A0A0A] border border-neutral-800 rounded-xl p-4 mt-6 flex justify-between items-center">
-                  <div>
-                    <div className="font-bold text-neutral-100 text-sm">Tacos Double</div>
-                    <div className="text-xs text-neutral-500">Sauce fromagère, Frites</div>
+                <div className="bg-[#0A0A0A] border border-neutral-800 rounded-xl p-4 mt-6 flex justify-between items-center rtl:flex-row-reverse w-full">
+                  <div className="rtl:text-right text-left">
+                    <div className="font-bold text-neutral-100 text-sm">{t.hero_item_name}</div>
+                    <div className="text-xs text-neutral-500">{t.hero_item_desc}</div>
                   </div>
                   <div className="text-amber-500 font-bold text-sm">45 MAD</div>
                 </div>
@@ -104,10 +107,12 @@ export default function Hero() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 1, duration: 0.5 }}
-                className="absolute -bottom-5 -right-5 bg-neutral-900 border border-neutral-700 px-4 py-2 rounded-full shadow-xl flex items-center gap-2"
+                className="absolute -bottom-5 -right-5 rtl:right-auto rtl:-left-5 bg-neutral-900 border border-neutral-700 px-4 py-2 rounded-full shadow-xl flex items-center gap-2 rtl:flex-row-reverse"
               >
                 <div className="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></div>
-                <span className="text-xs font-mono font-bold text-neutral-200 tracking-wider">EN CUISINE - #1042</span>
+                <span className="text-xs font-mono font-bold text-neutral-200 tracking-wider">
+                  {t.hero_kds_pill}
+                </span>
               </motion.div>
             </motion.div>
           </div>

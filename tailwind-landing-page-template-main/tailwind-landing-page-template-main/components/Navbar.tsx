@@ -3,10 +3,15 @@
 import Link from "next/link";
 import { useI18nContext } from "@/lib/i18n/i18n-context";
 import { translations, Locale } from "@/lib/i18n/translations";
+import Image from "next/image";
 
 export default function Navbar() {
   const { locale, setLocale } = useI18nContext();
   const t = translations[locale];
+
+  const scrollToBeta = () => {
+    document.getElementById('beta-claim-form')?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <header className="sticky top-0 z-50 w-full bg-[#0A0A0A]/90 backdrop-blur-md border-b border-neutral-800">
@@ -15,8 +20,8 @@ export default function Navbar() {
           
           {/* Logo (col 1-3) */}
           <div className="col-span-6 md:col-span-3">
-            <Link href="/" className="text-2xl font-black text-neutral-50 tracking-tight">
-              GEQO<span className="text-amber-500">.</span>
+            <Link href="/" className="flex items-center">
+              <img src="/geqo-logo.svg" alt="GEQO" className="h-8 w-auto" />
             </Link>
           </div>
           
@@ -37,12 +42,12 @@ export default function Navbar() {
           
           {/* CTA (col 10-12) */}
           <div className="hidden md:flex col-span-3 justify-end">
-            <Link 
-              href="/claim" 
+            <button 
+              onClick={scrollToBeta}
               className="bg-neutral-50 text-neutral-950 font-bold px-5 py-2.5 hover:bg-neutral-200 transition-colors"
             >
-              Rejoindre la Bêta
-            </Link>
+              {t.cta_join_beta}
+            </button>
           </div>
           
         </div>

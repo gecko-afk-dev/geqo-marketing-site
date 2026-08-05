@@ -2,28 +2,33 @@
 
 import { motion } from "framer-motion";
 import { swissContainerVariants, swissItemVariants } from "@/lib/motion";
+import { useI18nContext } from "@/lib/i18n/i18n-context";
+import { translations } from "@/lib/i18n/translations";
 
 export default function FeatureMatrix() {
+  const { locale } = useI18nContext();
+  const t = translations[locale];
+
   const features = [
     {
       id: "01",
-      title: "Funnel Hybrid WhatsApp",
-      description: "Magic Link JWT -> PWA instantanée sans téléchargement."
+      title: t.feat_1_title,
+      description: t.feat_1_desc
     },
     {
       id: "02",
-      title: "Modificateurs Talabat",
-      description: "Sauces, extras, options avec calculs de prix en temps réel."
+      title: t.feat_2_title,
+      description: t.feat_2_desc
     },
     {
       id: "03",
-      title: "Géolocalisation 0 MAD",
-      description: "Pin drop OpenStreetMap Leaflet.js + calcul Haversine serveur."
+      title: t.feat_3_title,
+      description: t.feat_3_desc
     },
     {
       id: "04",
-      title: "Écran Cuisine (KDS) WebSockets",
-      description: "Vue 3 live order feed avec notifications sonores."
+      title: t.feat_4_title,
+      description: t.feat_4_desc
     }
   ];
 
@@ -43,7 +48,7 @@ export default function FeatureMatrix() {
               variants={swissItemVariants}
               className="col-span-12 md:col-span-6 bg-[#141414] border border-neutral-800 p-8 hover:border-amber-500/40 transition-colors duration-300"
             >
-              <div className="text-xl font-bold text-neutral-50 mb-3 rtl:text-right text-left flex gap-2">
+              <div className="text-xl font-bold text-neutral-50 mb-3 rtl:text-right text-left flex gap-2 rtl:flex-row-reverse">
                 <span className="text-amber-500 font-mono">{feature.id} /</span>
                 <span>{feature.title}</span>
               </div>
