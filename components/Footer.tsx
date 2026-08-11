@@ -1,3 +1,4 @@
+import Link from "next/link";
 import SetaeMark from "./SetaeMark";
 
 export default function Footer() {
@@ -16,26 +17,52 @@ export default function Footer() {
               <span className="font-plex-arabic text-xl text-offwhite/80">جيكو</span>
             </div>
             
-            <p className="font-plex-mono text-xs text-[#737373] uppercase tracking-wide">
-              GEQO SARL AU (Morocco) & GEQO LLC (Wyoming, US)
-            </p>
-
-            <p className="font-plex-sans text-sm text-[#A3A3A3]">
-              Pronunciation : GEQO — pronounced "GEK-oh" (like gecko, minus the 'c')
-            </p>
+            <div className="font-plex-sans text-xs text-[#737373] leading-relaxed max-w-lg space-y-2">
+              <p>
+                « GEQO est une plateforme logicielle détenue par GEQO LLC (Wyoming, USA) et exploitée au Maroc par GEQO SARL AU (Casablanca, Maroc). »
+              </p>
+              <p className="opacity-80">
+                "GEQO is a software platform owned by GEQO LLC (Wyoming, USA) and operated in Morocco by GEQO SARL AU (Casablanca, Morocco). GEQO LLC is the technology provider; GEQO SARL AU manages local merchant services."
+              </p>
+              <p className="pt-2 font-plex-mono uppercase tracking-widest text-[#525252]">
+                GEQO SARL AU (IF: —, ICE: —, RC: —, Casablanca)
+                <br />
+                GEQO LLC (EIN: —, Wyoming)
+              </p>
+            </div>
           </div>
 
-          {/* Legal Compliance */}
-          <div className="md:col-span-6 flex flex-col justify-end">
-            <p className="font-plex-sans text-xs text-[#737373] leading-relaxed max-w-xl">
-              Conforme à la Loi 31-08 édictant des mesures de protection du consommateur. 0% commission s'applique aux commandes directes traitées via le système GEQO (hors frais de livraison).
-            </p>
+          {/* Legal Compliance & Links */}
+          <div className="md:col-span-6 flex flex-col justify-end space-y-6">
+            <div className="flex flex-wrap gap-4 text-sm font-plex-mono tracking-wide">
+              <Link href="/terms" className="text-offwhite hover:text-saffron transition-colors">
+                Conditions Générales
+              </Link>
+              <span className="text-grid-line">|</span>
+              <Link href="/privacy" className="text-offwhite hover:text-saffron transition-colors">
+                Politique de Confidentialité
+              </Link>
+            </div>
+            
+            <div className="space-y-2">
+              <p className="font-plex-sans text-xs text-[#737373] leading-relaxed">
+                Conforme à la Loi 31-08 édictant des mesures de protection du consommateur. 0% commission s'applique aux commandes directes traitées via le système GEQO (hors frais de livraison).
+              </p>
+              <p className="font-plex-sans text-xs text-[#737373] leading-relaxed">
+                <Link href="/privacy#garantie" className="text-mint hover:underline">
+                  Conforme Loi 09-08 (CNDP) · Aucune vente de données — jamais.
+                </Link>
+              </p>
+            </div>
           </div>
         </div>
 
         <div className="flex flex-col md:flex-row justify-between items-center text-xs font-plex-mono text-[#525252] tracking-wider uppercase">
-          <span>© {new Date().getFullYear()} GEQO SYSTEM. ALL RIGHTS RESERVED.</span>
-          <span className="mt-4 md:mt-0">Space Grotesk · IBM Plex Mono · IBM Plex Sans Arabic</span>
+          <span>© {new Date().getFullYear()} GEQO SARL AU. ALL RIGHTS RESERVED.</span>
+          <div className="mt-4 md:mt-0 flex gap-4">
+            <a href="https://wa.me/212000000000" className="hover:text-mint transition-colors">WhatsApp Contact</a>
+            {/* Additional social links can go here */}
+          </div>
         </div>
       </div>
     </footer>
