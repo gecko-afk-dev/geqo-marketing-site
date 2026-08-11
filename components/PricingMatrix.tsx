@@ -1,4 +1,10 @@
+"use client";
+
+import { useLanguage } from "@/lib/i18n/LanguageContext";
+
 export default function PricingMatrix() {
+  const { t } = useLanguage();
+
   const tiers = [
     {
       name: "STARTER",
@@ -13,7 +19,7 @@ export default function PricingMatrix() {
         "Marge de confiance -75 MAD (≈ 25 commandes)",
         "1 point de vente",
       ],
-      cta: "Commencer Gratuitement",
+      cta: t("pricing_starter_cta"),
       isPopular: false,
       isPrixFondateur: false,
       fenceCopy: "Sans livreurs, sans campagnes marketing — la porte d'entrée.",
@@ -33,7 +39,7 @@ export default function PricingMatrix() {
         "Geo-fencing livraison",
         "CRM complet + statistiques avancées",
       ],
-      cta: "Bloquer le Prix Fondateur",
+      cta: t("pricing_pro_cta"),
       isPopular: true,
       isPrixFondateur: true,
       callout: "Paiement annuel = 2 mois offerts",
@@ -53,7 +59,7 @@ export default function PricingMatrix() {
         "Export CRM brut",
         "Support prioritaire",
       ],
-      cta: "Contacter les Ventes",
+      cta: t("pricing_scale_cta"),
       isPopular: false,
       isPrixFondateur: true,
       microLine: "Scale = votre facture Mymenu… avec la cuisine et les livreurs."
@@ -69,7 +75,7 @@ export default function PricingMatrix() {
         "Tout le pack Scale",
         "Manager dédié",
       ],
-      cta: "Solutions Multi-Sites",
+      cta: t("pricing_multi_cta"),
       isPopular: false,
       isPrixFondateur: true,
       microLine: "Multi = 46 % moins cher que 3 × Scale."
@@ -81,13 +87,13 @@ export default function PricingMatrix() {
       <div className="max-w-[1440px] mx-auto px-6">
         <div className="mb-16 text-center">
           <h2 className="font-space font-bold text-4xl text-offwhite mb-4">
-            Tarifs Transparents
+            {t("pricing_title")}
           </h2>
           <p className="font-plex-sans text-[#A3A3A3] text-lg max-w-2xl mx-auto">
-            Zéro frais cachés. Une tarification prévisible conçue pour évoluer avec votre volume.
+            {t("pricing_subtitle")}
           </p>
           <p className="mt-4 text-xs text-[#737373] max-w-3xl mx-auto font-plex-mono">
-            0 % de commission sur les commandes passées via GEQO. Frais fixes uniquement : 3,00 MAD TTC par commande (offre Starter). Commandes annulées avant préparation : 0 MAD.
+            {t("pricing_disclaimer")}
           </p>
         </div>
 
@@ -104,7 +110,7 @@ export default function PricingMatrix() {
               )}
               {tier.isPopular && (
                 <div className="absolute top-4 right-4 bg-saffron text-obsidian text-xs font-bold uppercase tracking-widest py-1 px-2">
-                  ⭐ Plus Populaire
+                  {t("pricing_popular")}
                 </div>
               )}
               
@@ -121,7 +127,7 @@ export default function PricingMatrix() {
 
                 {tier.isPrixFondateur && (
                   <div className="mt-4 bg-[#262626] border border-[#404040] p-3 text-sm">
-                    <span className="block font-plex-sans font-bold text-saffron">Prix Fondateur à vie :</span>
+                    <span className="block font-plex-sans font-bold text-saffron">{t("pricing_founder_life")}</span>
                     <span className="block font-plex-mono text-offwhite">{tier.prixFondateur}</span>
                   </div>
                 )}
@@ -182,35 +188,35 @@ export default function PricingMatrix() {
           {/* Prix Fondateur Banner */}
           <div className="bg-saffron text-obsidian font-bold p-4 text-center tracking-wide font-plex-mono uppercase text-sm">
             {/* [PRIX FONDATEUR LOCK] */}
-            Offre de Lancement — Prix Fondateur : réservé aux 100 premiers restaurants !
+            {t("pricing_founder_banner")}
             <div className="mt-2 h-2 bg-obsidian/20 max-w-md mx-auto rounded-full overflow-hidden">
               <div className="h-full bg-obsidian w-[87%]" />
             </div>
-            <div className="mt-1 text-xs opacity-80">87 / 100 places réservées</div>
+            <div className="mt-1 text-xs opacity-80">{t("pricing_founder_spots")}</div>
           </div>
           
           <p className="text-center text-sm font-plex-sans text-[#A3A3A3] italic">
-            « Notre péage de 3,00 MAD TTC est équivalent à 2,50 MAD HT — soit 14 % moins cher en réel que les 2,90 MAD HT appliqués par d'autres solutions du marché ! »
+            {t("pricing_quote")}
           </p>
           
           <p className="text-center text-xs font-plex-sans text-[#737373]">
-            Marketing WhatsApp : consentement explicite requis (Loi 09-08). Désinscription « STOP » en 1 message. Aucune vente de données — jamais.
+            {t("pricing_marketing")}
           </p>
 
           <div className="bg-[#141414] border border-grid-line p-6 mt-8">
-            <h4 className="font-space font-bold text-lg text-offwhite mb-4">Note TTC / HT & Facturation</h4>
+            <h4 className="font-space font-bold text-lg text-offwhite mb-4">{t("pricing_note_title")}</h4>
             <div className="space-y-4 font-plex-sans text-sm text-[#A3A3A3]">
               <p>
-                <strong className="text-[#D4D4D4]">Affichage Transparent (TTC) :</strong> Tous nos tarifs sont affichés TTC (TVA 20 % incluse) pour une clarté totale envers les indépendants, auto-entrepreneurs et snacks non assujettis (qui ne récupèrent pas la TVA).
+                <strong className="text-[#D4D4D4]">{t("pricing_note_1_title")}</strong> {t("pricing_note_1_desc")}
               </p>
               <p>
-                <strong className="text-[#D4D4D4]">Facturation Professionnelle (HT) :</strong> Pour les entreprises assujetties (SARL / SA), chaque abonnement et recharge fait l'objet d'une facture officielle conforme, comportant l'Identifiant Fiscal (IF) de GEQO SARL AU et la mention explicite de la TVA 20 % déductible.
+                <strong className="text-[#D4D4D4]">{t("pricing_note_2_title")}</strong> {t("pricing_note_2_desc")}
               </p>
               <p className="text-xs text-[#737373] mt-4 pt-4 border-t border-[#262626]">
-                Référence légale : Prestations de services numériques soumises au taux normal de 20 % (art. 99-A CGI) ; seuil d'assujettissement des prestataires de services : 500 000 MAD de CA.
+                {t("pricing_note_3")}
               </p>
               <p className="text-xs text-saffron mt-2 font-medium">
-                Bon à savoir : le paiement annuel (2 mois offerts) équivaut à payer au prix HT — la même économie que la TVA récupérable pour les assujettis.
+                {t("pricing_note_4")}
               </p>
             </div>
           </div>

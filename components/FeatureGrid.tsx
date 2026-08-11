@@ -1,28 +1,34 @@
+"use client";
+
+import { useLanguage } from "@/lib/i18n/LanguageContext";
+
 export default function FeatureGrid() {
+  const { t } = useLanguage();
+
   const features = [
     {
-      title: "Vue 3 Kitchen Display System",
-      description: "High-contrast screen readable from 3 meters away through smoke and glare.",
-      meta: "KDS SLA: < 15 MIN",
-      highlight: "CRITICAL RED THRESHOLDS",
+      title: t("feat_1_title"),
+      description: t("feat_1_desc"),
+      meta: t("feat_1_meta"),
+      highlight: t("feat_1_hl"),
     },
     {
-      title: "Next.js 15 WhatsApp PWA",
-      description: "Customer texts WhatsApp -> receives JWT magic link -> builds cart in a sub-second webview with $0 GPS tracking via Leaflet.js.",
-      meta: "LATENCY: < 50ms",
-      highlight: "ZERO-DOWNLOAD APP",
+      title: t("feat_2_title"),
+      description: t("feat_2_desc"),
+      meta: t("feat_2_meta"),
+      highlight: t("feat_2_hl"),
     },
     {
-      title: "Dispatch & Driver PIN Verification",
-      description: "Driver verifies delivery with a native 4-digit WhatsApp PIN. Zero dispute claims, zero fake deliveries.",
-      meta: "100% AUDIT TRAIL",
-      highlight: "FRAUD-PROOF DISPATCH",
+      title: t("feat_3_title"),
+      description: t("feat_3_desc"),
+      meta: t("feat_3_meta"),
+      highlight: t("feat_3_hl"),
     },
     {
-      title: "Customer CRM Ownership",
-      description: "You own 100% of your diner contact data. Export raw CSV or trigger WhatsApp re-engagement campaigns via GEQO Boost.",
-      meta: "DATA EXPORT: CSV/JSON",
-      highlight: "RETARGETING ENGINE",
+      title: t("feat_4_title"),
+      description: t("feat_4_desc"),
+      meta: t("feat_4_meta"),
+      highlight: t("feat_4_hl"),
     },
   ];
 
@@ -32,10 +38,10 @@ export default function FeatureGrid() {
         <div className="grid grid-cols-12 md:grid-cols-16 gap-6 mb-16">
           <div className="col-span-12 md:col-span-14 lg:col-span-10 md:col-start-2">
             <h2 className="font-space font-bold text-4xl text-offwhite mb-4">
-              Industrial-Grade Engineering
+              {t("feat_section_title")}
             </h2>
             <p className="font-plex-sans text-[#A3A3A3] text-lg max-w-2xl">
-              Engineered exclusively for high-volume Moroccan kitchens. No fluff, just pure utility.
+              {t("feat_section_desc")}
             </p>
           </div>
         </div>

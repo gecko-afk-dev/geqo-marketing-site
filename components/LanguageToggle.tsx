@@ -9,28 +9,12 @@ export default function LanguageToggle({
 }) {
   return (
     <div className="flex justify-end mb-8 font-plex-mono text-sm">
-      <div className="bg-[#141414] p-1 rounded border border-[#262626] flex gap-1">
-        <button
-          onClick={() => setLang('FR')}
-          role="button"
-          aria-pressed={lang === 'FR'}
-          className={`px-4 py-2 rounded transition-colors ${
-            lang === 'FR' ? 'bg-[#262626] text-offwhite font-bold' : 'text-[#737373] hover:text-[#A3A3A3]'
-          }`}
-        >
-          FR
-        </button>
-        <button
-          onClick={() => setLang('EN')}
-          role="button"
-          aria-pressed={lang === 'EN'}
-          className={`px-4 py-2 rounded transition-colors ${
-            lang === 'EN' ? 'bg-[#262626] text-offwhite font-bold' : 'text-[#737373] hover:text-[#A3A3A3]'
-          }`}
-        >
-          EN
-        </button>
-      </div>
+      <button
+        onClick={() => setLang(lang === 'FR' ? 'EN' : 'FR')}
+        className="bg-[#141414] text-offwhite border border-[#262626] px-4 py-2 rounded hover:bg-[#262626] transition-colors font-bold tracking-widest"
+      >
+        {lang === 'FR' ? 'FR / EN' : 'EN / FR'}
+      </button>
     </div>
   );
 }

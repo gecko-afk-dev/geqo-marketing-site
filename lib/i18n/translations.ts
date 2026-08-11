@@ -1,11 +1,15 @@
 export const translations = {
   en: {
+    // Header
+    header_live: "SYSTEM LIVE // 99.99% WEBSOCKET UPTIME",
+    header_cta: "Request Demo",
+
     // Hero
     hero_tag: "// THE 0% COMMISSION WHATSAPP PLATFORM",
-    hero_headline: "Stop Giving 25% of Your Revenue to Delivery Apps.",
-    hero_subheadline: "Automate your entire ordering system directly inside WhatsApp with a lightning-fast PWA menu and KDS display. Exactly 3.0 MAD per order.",
-    cta_join_beta: "Join Beta (Invitation Card)",
-    hero_btn_calc: "Calculate My Savings",
+    hero_headline: "Lma7al ma7alek, w Rba7 7ta huwa dialek!",
+    hero_subheadline: "The high-velocity engine running on your kitchen walls. Replace tablet chaos with a single Vue 3 KDS, instant WhatsApp PWA ordering, and 0% commission.",
+    cta_join_beta: "Start Free — Prix Fondateur Lock",
+    hero_btn_calc: "Watch 60s Kitchen Demo",
     hero_bot_name: "GEQO Bot",
     hero_bot_status: "Online",
     hero_bot_msg: "Welcome! Your order is ready to be entered. Click below to open the secure menu.",
@@ -23,25 +27,38 @@ export const translations = {
     metric_3_desc: "Hardware Fees. Works on any existing phone, tablet, or PC.",
 
     // Calculator
+    calc_section_title: "Profitability Simulator",
+    calc_section_desc: "Slide to see exactly how much you save every month compared to a 25% commission platform.",
     calc_title: "// PROFITABILITY SIMULATOR",
     calc_slider1: "Orders delivered per day",
     calc_slider2: "Average basket size (MAD)",
     calc_aggregator: "Aggregators Commission (25%)",
     calc_geqo: "GEQO Cost (3.0 MAD fixed)",
     calc_net: "NET GAIN IN YOUR POCKET",
+    calc_monthly: "Monthly Savings",
 
     // Parallax
     parallax_quote: "Designed for Moroccan Fast-Food. Built for High-Volume Rushes.",
 
     // Features
-    feat_1_title: "Hybrid WhatsApp Funnel",
-    feat_1_desc: "JWT Magic Link -> Instant PWA without downloading.",
-    feat_2_title: "Modifiers & Extras",
-    feat_2_desc: "Sauces, extras, options with real-time price calculations.",
-    feat_3_title: "Geolocation & Drop Pin Precision",
-    feat_3_desc: "Interactive Leaflet.js pin drop for customers + server-side Haversine distance geofencing.",
-    feat_4_title: "Kitchen Screen (KDS) WebSockets",
-    feat_4_desc: "Vue 3 live order feed with sound notifications.",
+    feat_section_title: "Industrial-Grade Engineering",
+    feat_section_desc: "Engineered exclusively for high-volume Moroccan kitchens. No fluff, just pure utility.",
+    feat_1_title: "Vue 3 Kitchen Display System",
+    feat_1_desc: "High-contrast screen readable from 3 meters away through smoke and glare.",
+    feat_1_meta: "KDS SLA: < 15 MIN",
+    feat_1_hl: "CRITICAL RED THRESHOLDS",
+    feat_2_title: "Next.js 15 WhatsApp PWA",
+    feat_2_desc: "Customer texts WhatsApp -> receives JWT magic link -> builds cart in a sub-second webview with $0 GPS tracking via Leaflet.js.",
+    feat_2_meta: "LATENCY: < 50ms",
+    feat_2_hl: "ZERO-DOWNLOAD APP",
+    feat_3_title: "Dispatch & Driver PIN Verification",
+    feat_3_desc: "Driver verifies delivery with a native 4-digit WhatsApp PIN. Zero dispute claims, zero fake deliveries.",
+    feat_3_meta: "100% AUDIT TRAIL",
+    feat_3_hl: "FRAUD-PROOF DISPATCH",
+    feat_4_title: "Customer CRM Ownership",
+    feat_4_desc: "You own 100% of your diner contact data. Export raw CSV or trigger WhatsApp re-engagement campaigns via GEQO Boost.",
+    feat_4_meta: "DATA EXPORT: CSV/JSON",
+    feat_4_hl: "RETARGETING ENGINE",
 
     // Form
     form_heading: "Received a Beta Invitation Card?",
@@ -54,17 +71,49 @@ export const translations = {
     form_email: "Email Address",
     form_submit_beta: "Activate Beta",
 
-    footer_location: "Casablanca, Morocco",
-    footer_powered: "Backed by WhatsApp Cloud API",
-    footer_copyright: "© 2026 GEQO. All rights reserved."
+    // Pricing
+    pricing_title: "Transparent Pricing",
+    pricing_subtitle: "Zero hidden fees. Predictable pricing designed to scale with your volume.",
+    pricing_disclaimer: "0% commission on orders placed via GEQO. Fixed fees only: MAD 3.00 incl. VAT per order (Starter plan). Orders cancelled before preparation: 0 MAD.",
+    pricing_popular: "⭐ Most Popular",
+    pricing_founder_life: "Lifetime Founder Price:",
+    pricing_pro_cta: "BOOK THE FOUNDER'S PRICE",
+    pricing_starter_cta: "Start for Free",
+    pricing_scale_cta: "Contact Sales",
+    pricing_multi_cta: "Multi-Site Solutions",
+    pricing_founder_banner: "Launch Offer — Founder Price: reserved for the first 100 restaurants!",
+    pricing_founder_spots: "87 / 100 spots reserved",
+    pricing_quote: "« Our 3.00 MAD toll is equivalent to 2.50 MAD excl. VAT — 14% cheaper than the 2.90 MAD excl. VAT applied by other solutions! »",
+    pricing_marketing: "WhatsApp Marketing: explicit consent required (Law 09-08). 'STOP' opt-out in 1 message. No data selling — ever.",
+    pricing_note_title: "VAT & Billing Note",
+    pricing_note_1_title: "Transparent Display (incl. VAT):",
+    pricing_note_1_desc: "All our prices are displayed inclusive of 20% VAT for total clarity towards freelancers and non-subject snacks.",
+    pricing_note_2_title: "Professional Billing (excl. VAT):",
+    pricing_note_2_desc: "For subject companies, each subscription and top-up is accompanied by a compliant official invoice with deductible 20% VAT.",
+    pricing_note_3: "Legal reference: Digital services subject to the standard 20% rate; threshold: 500,000 MAD.",
+    pricing_note_4: "Good to know: the annual payment (2 months free) equals paying the excl. VAT price.",
+
+    // Footer
+    footer_desc_1: "« GEQO is a software platform owned by GEQO LLC (Wyoming, USA) and operated in Morocco by GEQO SARL AU (Casablanca, Morocco). »",
+    footer_desc_2: "\"GEQO LLC is the technology provider; GEQO SARL AU manages local merchant services.\"",
+    footer_terms: "Terms of Service",
+    footer_privacy: "Privacy Policy",
+    footer_compliance_1: "Compliant with Law 31-08 on consumer protection. 0% commission applies to direct orders processed via the GEQO system.",
+    footer_compliance_2: "Compliant with Law 09-08 (CNDP) · No data selling — ever.",
+    footer_rights: "© 2026 GEQO SARL AU. ALL RIGHTS RESERVED.",
+    footer_contact: "WhatsApp Contact"
   },
   fr: {
+    // Header
+    header_live: "SYSTÈME EN LIGNE // 99.99% UPTIME WEBSOCKET",
+    header_cta: "Demander la Démo",
+
     // Hero
     hero_tag: "// LA PLATEFORME WHATSAPP 0% COMMISSION",
     hero_headline: "Arrêtez de Donner 25% de Vos Revenus aux Apps de Livraison.",
     hero_subheadline: "Recevez vos commandes Tacos, Burgers & Pizza directement sur WhatsApp avec un menu PWA ultra-rapide et un écran cuisine KDS. Exactement 3.0 MAD par commande.",
-    cta_join_beta: "Rejoindre la Bêta (Carte Invitation)",
-    hero_btn_calc: "Calculer mes Économies",
+    cta_join_beta: "Démarrer Gratuitement — Prix Fondateur",
+    hero_btn_calc: "Voir la Démo de 60s",
     hero_bot_name: "GEQO Bot",
     hero_bot_status: "En ligne",
     hero_bot_msg: "Bienvenue! Votre commande est prête à être saisie. Cliquez ci-dessous pour ouvrir le menu sécurisé.",
@@ -82,25 +131,38 @@ export const translations = {
     metric_3_desc: "Frais de Matériel. Fonctionne sur n'importe quel téléphone, tablette ou PC existant.",
 
     // Calculator
+    calc_section_title: "Simulateur de Rentabilité",
+    calc_section_desc: "Glissez pour voir exactement combien vous économisez chaque mois par rapport à une plateforme à 25% de commission.",
     calc_title: "// SIMULATEUR DE RENTABILITÉ",
     calc_slider1: "Commandes livrées par jour",
     calc_slider2: "Panier moyen par commande (MAD)",
     calc_aggregator: "Commission Agrégateurs (25%)",
     calc_geqo: "Coût GEQO (3.0 MAD fixe)",
     calc_net: "NET GAIN DANS VOTRE POCHE",
+    calc_monthly: "Économies Mensuelles",
 
     // Parallax
     parallax_quote: "Conçu pour le Fast-Food Marocain. Construit pour les Rushs à Haut Volume.",
 
     // Features
-    feat_1_title: "Funnel Hybrid WhatsApp",
-    feat_1_desc: "Magic Link JWT -> PWA instantanée sans téléchargement.",
-    feat_2_title: "Modificateurs Talabat",
-    feat_2_desc: "Sauces, extras, options avec calculs de prix en temps réel.",
-    feat_3_title: "Géolocalisation & Drop Pin Precision",
-    feat_3_desc: "Pin drop interactif Leaflet.js pour les clients + géorepérage Haversine côté serveur.",
-    feat_4_title: "Écran Cuisine (KDS) WebSockets",
-    feat_4_desc: "Vue 3 live order feed avec notifications sonores.",
+    feat_section_title: "Ingénierie de Qualité Industrielle",
+    feat_section_desc: "Conçu exclusivement pour les cuisines marocaines à haut volume. Pas de superflu, juste de l'utilité.",
+    feat_1_title: "Écran Cuisine KDS Vue 3",
+    feat_1_desc: "Écran à contraste élevé lisible à 3 mètres à travers la fumée et les reflets.",
+    feat_1_meta: "SLA KDS: < 15 MIN",
+    feat_1_hl: "SEUILS ROUGES CRITIQUES",
+    feat_2_title: "WhatsApp PWA Next.js 15",
+    feat_2_desc: "Le client envoie un message -> reçoit un Magic Link JWT -> remplit son panier en <1s avec tracking GPS Leaflet.js à 0$.",
+    feat_2_meta: "LATENCE: < 50ms",
+    feat_2_hl: "APP SANS TÉLÉCHARGEMENT",
+    feat_3_title: "Dispatch & Vérification Code PIN",
+    feat_3_desc: "Le livreur vérifie la livraison avec un code PIN WhatsApp à 4 chiffres. Zéro litige, zéro fausse livraison.",
+    feat_3_meta: "100% AUDIT TRAIL",
+    feat_3_hl: "DISPATCH ANTI-FRAUDE",
+    feat_4_title: "Propriété du CRM Client",
+    feat_4_desc: "Vous possédez 100% des données de contact. Exportez en CSV ou lancez des campagnes WhatsApp via GEQO Boost.",
+    feat_4_meta: "EXPORT DONNÉES: CSV/JSON",
+    feat_4_hl: "MOTEUR DE RETARGETING",
 
     // Form
     form_heading: "Vous avez reçu une carte d'invitation Bêta ?",
@@ -113,17 +175,49 @@ export const translations = {
     form_email: "Adresse Email",
     form_submit_beta: "Activer Mon Restaurant",
 
-    footer_location: "Casablanca, Maroc",
-    footer_powered: "Propulsé par WhatsApp Cloud API",
-    footer_copyright: "© 2026 GEQO. Tous droits réservés."
+    // Pricing
+    pricing_title: "Tarifs Transparents",
+    pricing_subtitle: "Zéro frais cachés. Une tarification prévisible conçue pour évoluer avec votre volume.",
+    pricing_disclaimer: "0 % de commission sur les commandes passées via GEQO. Frais fixes uniquement : 3,00 MAD TTC par commande (offre Starter). Commandes annulées avant préparation : 0 MAD.",
+    pricing_popular: "⭐ Plus Populaire",
+    pricing_founder_life: "Prix Fondateur à vie :",
+    pricing_pro_cta: "RÉSERVER LE PRIX FONDATEUR",
+    pricing_starter_cta: "Commencer Gratuitement",
+    pricing_scale_cta: "Contacter les Ventes",
+    pricing_multi_cta: "Solutions Multi-Sites",
+    pricing_founder_banner: "Offre de Lancement — Prix Fondateur : réservé aux 100 premiers restaurants !",
+    pricing_founder_spots: "87 / 100 places réservées",
+    pricing_quote: "« Notre péage de 3,00 MAD TTC est équivalent à 2,50 MAD HT — soit 14 % moins cher en réel que les 2,90 MAD HT appliqués par d'autres solutions du marché ! »",
+    pricing_marketing: "Marketing WhatsApp : consentement explicite requis (Loi 09-08). Désinscription « STOP » en 1 message. Aucune vente de données — jamais.",
+    pricing_note_title: "Note TTC / HT & Facturation",
+    pricing_note_1_title: "Affichage Transparent (TTC) :",
+    pricing_note_1_desc: "Tous nos tarifs sont affichés TTC (TVA 20 % incluse) pour une clarté totale envers les indépendants, auto-entrepreneurs et snacks non assujettis.",
+    pricing_note_2_title: "Facturation Professionnelle (HT) :",
+    pricing_note_2_desc: "Pour les entreprises assujetties (SARL / SA), chaque abonnement et recharge fait l'objet d'une facture officielle conforme avec la TVA 20 % déductible.",
+    pricing_note_3: "Référence légale : Prestations de services numériques soumises au taux normal de 20 % ; seuil : 500 000 MAD de CA.",
+    pricing_note_4: "Bon à savoir : le paiement annuel (2 mois offerts) équivaut à payer au prix HT — la même économie que la TVA récupérable.",
+
+    // Footer
+    footer_desc_1: "« GEQO est une plateforme logicielle détenue par GEQO LLC (Wyoming, USA) et exploitée au Maroc par GEQO SARL AU (Casablanca, Maroc). »",
+    footer_desc_2: "\"GEQO is a software platform owned by GEQO LLC (Wyoming, USA) and operated in Morocco by GEQO SARL AU (Casablanca, Morocco). GEQO LLC is the technology provider; GEQO SARL AU manages local merchant services.\"",
+    footer_terms: "Conditions Générales",
+    footer_privacy: "Politique de Confidentialité",
+    footer_compliance_1: "Conforme à la Loi 31-08 édictant des mesures de protection du consommateur. 0% commission s'applique aux commandes directes traitées via le système GEQO.",
+    footer_compliance_2: "Conforme Loi 09-08 (CNDP) · Aucune vente de données — jamais.",
+    footer_rights: "© 2026 GEQO SARL AU. ALL RIGHTS RESERVED.",
+    footer_contact: "WhatsApp Contact"
   },
   ar: {
+    // Header
+    header_live: "النظام متصل // 99.99% وقت تشغيل WEBSOCKET",
+    header_cta: "اطلب عرضاً تجريبياً",
+
     // Hero
     hero_tag: "// منصة واتساب بصفر عمولة",
     hero_headline: "توقف عن إعطاء 25% من إيراداتك لتطبيقات التوصيل.",
     hero_subheadline: "استلم طلباتك مباشرة على واتساب مع قائمة PWA سريعة وشاشة مطبخ KDS. فقط 3.0 درهم للطلب الواحد.",
-    cta_join_beta: "انضم للنسخة التجريبية (بطاقة دعوة)",
-    hero_btn_calc: "احسب توفيرك",
+    cta_join_beta: "ابدأ مجاناً — احجز سعر المؤسس",
+    hero_btn_calc: "شاهد العرض في 60 ثانية",
     hero_bot_name: "GEQO Bot",
     hero_bot_status: "متصل",
     hero_bot_msg: "مرحباً! طلبك جاهز للإدخال. انقر أدناه لفتح القائمة الآمنة.",
@@ -141,25 +235,38 @@ export const translations = {
     metric_3_desc: "لا توجد رسوم للمعدات. يعمل على أي هاتف أو جهاز لوحي أو كمبيوتر.",
 
     // Calculator
+    calc_section_title: "محاكي الربحية",
+    calc_section_desc: "اسحب لترى بالضبط كم توفر كل شهر مقارنة بمنصة تأخذ عمولة 25%.",
     calc_title: "// محاكي الربحية",
     calc_slider1: "الطلبات المسلمة يومياً",
     calc_slider2: "متوسط سلة الطلب (درهم)",
     calc_aggregator: "عمولة التطبيقات (25%)",
     calc_geqo: "تكلفة GEQO (3.0 درهم ثابت)",
     calc_net: "صافي الربح في جيبك",
+    calc_monthly: "التوفير الشهري",
 
     // Parallax
     parallax_quote: "مصمم للمطاعم المغربية. مبني لتحمل ضغط أوقات الذروة.",
 
     // Features
-    feat_1_title: "مسار واتساب الهجين",
-    feat_1_desc: "رابط سحري JWT -> تطبيق ويب فوري بدون تحميل.",
-    feat_2_title: "خيارات وإضافات",
-    feat_2_desc: "صلصات، إضافات، خيارات مع حسابات أسعار في الوقت الفعلي.",
-    feat_3_title: "تحديد الموقع بدقة متناهية",
-    feat_3_desc: "إسقاط دبوس تفاعلي للعملاء + تحديد نطاق جغرافي عبر الخادم.",
-    feat_4_title: "شاشة المطبخ (KDS) عبر WebSockets",
-    feat_4_desc: "تغذية طلبات حية مع إشعارات صوتية.",
+    feat_section_title: "هندسة صناعية متينة",
+    feat_section_desc: "مصمم حصرياً للمطاعم المغربية ذات الحجم الكبير. لا إضافات غير ضرورية، مجرد منفعة خالصة.",
+    feat_1_title: "شاشة مطبخ KDS Vue 3",
+    feat_1_desc: "شاشة عالية التباين قابلة للقراءة من 3 أمتار عبر الدخان والوهج.",
+    feat_1_meta: "SLA KDS: < 15 دقيقة",
+    feat_1_hl: "تنبيهات حمراء حرجة",
+    feat_2_title: "واتساب PWA Next.js 15",
+    feat_2_desc: "يرسل العميل رسالة -> يتلقى رابط سحري -> يبني طلبه في أقل من ثانية مع تتبع GPS مجاني.",
+    feat_2_meta: "الزمن: < 50ms",
+    feat_2_hl: "تطبيق بدون تحميل",
+    feat_3_title: "نظام التوصيل وتأكيد PIN",
+    feat_3_desc: "يؤكد المندوب التسليم برمز PIN مكون من 4 أرقام عبر واتساب. لا نزاعات، لا طلبات وهمية.",
+    feat_3_meta: "مسار تدقيق 100%",
+    feat_3_hl: "توصيل مضاد للاحتيال",
+    feat_4_title: "ملكية بيانات العملاء",
+    feat_4_desc: "أنت تملك 100% من بيانات عملائك. قم بتصدير CSV أو أطلق حملات إعادة استهداف واتساب.",
+    feat_4_meta: "تصدير البيانات: CSV/JSON",
+    feat_4_hl: "محرك إعادة الاستهداف",
 
     // Form
     form_heading: "هل تلقيت بطاقة دعوة للنسخة التجريبية؟",
@@ -172,9 +279,37 @@ export const translations = {
     form_email: "البريد الإلكتروني",
     form_submit_beta: "تفعيل مطعمي",
 
-    footer_location: "الدار البيضاء، المغرب",
-    footer_powered: "مدعوم من WhatsApp Cloud API",
-    footer_copyright: "© 2026 GEQO. جميع الحقوق محفوظة."
+    // Pricing
+    pricing_title: "أسعار شفافة",
+    pricing_subtitle: "لا توجد رسوم خفية. أسعار متوقعة مصممة لتنمو مع حجم عملك.",
+    pricing_disclaimer: "0% عمولة على الطلبات عبر GEQO. رسوم ثابتة فقط: 3.00 درهم شاملة الضريبة للطلب. الطلبات الملغاة قبل التحضير: 0 درهم.",
+    pricing_popular: "⭐ الأكثر شعبية",
+    pricing_founder_life: "سعر المؤسس مدى الحياة:",
+    pricing_pro_cta: "احجز سعر المؤسس",
+    pricing_starter_cta: "ابدأ مجاناً",
+    pricing_scale_cta: "اتصل بالمبيعات",
+    pricing_multi_cta: "حلول متعددة الفروع",
+    pricing_founder_banner: "عرض الإطلاق — سعر المؤسس: مخصص لأول 100 مطعم!",
+    pricing_founder_spots: "87 / 100 مقعد محجوز",
+    pricing_quote: "«رسومنا البالغة 3.00 درهم شاملة الضريبة تعادل 2.50 درهم بدون ضريبة — أرخص بنسبة 14% من 2.90 درهم بدون ضريبة التي تطبقها الحلول الأخرى!»",
+    pricing_marketing: "تسويق واتساب: موافقة صريحة مطلوبة (القانون 09-08). إلغاء الاشتراك بـ 'STOP' في رسالة واحدة. لا نبيع البيانات أبداً.",
+    pricing_note_title: "ملاحظة حول الضريبة والفواتير",
+    pricing_note_1_title: "عرض شفاف (شامل الضريبة):",
+    pricing_note_1_desc: "يتم عرض جميع أسعارنا شاملة لضريبة القيمة المضافة بنسبة 20% لضمان الشفافية التامة.",
+    pricing_note_2_title: "فواتير مهنية (بدون ضريبة):",
+    pricing_note_2_desc: "للشركات الخاضعة للضريبة، يتم إصدار فاتورة رسمية مع ضريبة قابلة للخصم بنسبة 20%.",
+    pricing_note_3: "المرجع القانوني: الخدمات الرقمية تخضع للمعدل العادي 20%.",
+    pricing_note_4: "معلومة هامة: الدفع السنوي (شهران مجاناً) يعادل الدفع بالسعر غير الشامل للضريبة.",
+
+    // Footer
+    footer_desc_1: "« GEQO هي منصة برمجية مملوكة لشركة GEQO LLC وتديرها في المغرب شركة GEQO SARL AU. »",
+    footer_desc_2: "\"GEQO LLC توفر التكنولوجيا؛ وتدير GEQO SARL AU خدمات التجار المحليين.\"",
+    footer_terms: "الشروط والأحكام",
+    footer_privacy: "سياسة الخصوصية",
+    footer_compliance_1: "متوافق مع القانون 31-08 المتعلق بحماية المستهلك. تطبق 0% عمولة على الطلبات المباشرة.",
+    footer_compliance_2: "متوافق مع القانون 09-08 · لا يتم بيع البيانات — أبداً.",
+    footer_rights: "© 2026 GEQO SARL AU. جميع الحقوق محفوظة.",
+    footer_contact: "تواصل عبر واتساب"
   }
 } as const;
 

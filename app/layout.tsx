@@ -33,6 +33,8 @@ export const metadata: Metadata = {
   description: "Replace tablet chaos with a single Vue 3 KDS, instant WhatsApp PWA ordering, and 0% commission.",
 };
 
+import { LanguageProvider } from "@/lib/i18n/LanguageContext";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -41,7 +43,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${spaceGrotesk.variable} ${ibmPlexSans.variable} ${ibmPlexMono.variable} ${ibmPlexArabic.variable}`}>
       <body>
-        {children}
+        <LanguageProvider>
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   );

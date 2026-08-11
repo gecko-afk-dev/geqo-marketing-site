@@ -1,4 +1,10 @@
+"use client";
+
+import { useLanguage } from "@/lib/i18n/LanguageContext";
+
 export default function HeroSection() {
+  const { t } = useLanguage();
+
   return (
     <section className="relative pt-24 pb-32 border-b border-grid-line overflow-hidden">
       {/* Background abstract grid lines */}
@@ -18,18 +24,18 @@ export default function HeroSection() {
             <div className="inline-flex items-center space-x-2 border border-grid-line bg-[#141414] px-4 py-2 mb-8">
               <span className="w-2 h-2 rounded-full bg-mint animate-pulse" />
               <span className="font-plex-mono text-xs md:text-sm text-offwhite uppercase tracking-widest">
-                [ ENGINE STATUS: OPERATIONAL ACROSS CASABLANCA & SETTAT ]
+                [ {t("hero_tag")} ]
               </span>
             </div>
 
             {/* Headline */}
             <h1 className="font-space font-bold text-5xl md:text-[64px] leading-[1.1] text-offwhite mb-8">
-              Lma7al ma7alek, w Rba7 7ta huwa dialek!
+              {t("hero_headline")}
             </h1>
 
             {/* Sub-headline */}
             <p className="font-plex-sans text-xl md:text-[20px] leading-relaxed text-[#A3A3A3] max-w-3xl mb-12">
-              The high-velocity engine running on your kitchen walls. Replace tablet chaos with a single Vue 3 KDS, instant WhatsApp PWA ordering, and 0% commission.
+              {t("hero_subheadline")}
             </p>
 
             {/* CTAs */}
@@ -38,12 +44,12 @@ export default function HeroSection() {
                 href="#beta-claim-form"
                 className="bg-saffron text-obsidian font-bold px-8 py-4 text-lg hover:bg-amber-400 transition-colors inline-block text-center uppercase tracking-wide"
               >
-                Start Free — Prix Fondateur Lock
+                {t("cta_join_beta")}
               </a>
               <button
                 className="border border-neutral-700 text-offwhite px-8 py-4 text-lg hover:border-neutral-500 transition-colors inline-block text-center uppercase tracking-wide"
               >
-                Watch 60s Kitchen Demo
+                {t("hero_btn_calc")}
               </button>
             </div>
 
