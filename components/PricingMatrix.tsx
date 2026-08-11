@@ -7,78 +7,54 @@ export default function PricingMatrix() {
 
   const tiers = [
     {
-      name: "STARTER",
-      price: "0 MAD",
-      period: "/ mois",
-      htEquivalent: "0 MAD HT",
-      features: [
-        "PWA + Menu QR",
-        "WhatsApp (commandes + alertes)",
-        "1 écran KDS",
-        "Capture CRM avec consentement",
-        "Marge de confiance -75 MAD (≈ 25 commandes)",
-        "1 point de vente",
-      ],
+      name: t("tier_starter_name"),
+      price: t("tier_starter_price"),
+      period: t("tier_starter_period"),
+      htEquivalent: t("tier_starter_ht"),
+      features: t("tier_starter_features"),
       cta: t("pricing_starter_cta"),
       isPopular: false,
       isPrixFondateur: false,
-      fenceCopy: "Sans livreurs, sans campagnes marketing — la porte d'entrée.",
-      toll: "3,00 MAD TTC / commande (soit 2,50 MAD HT)",
-      walletInfo: "Initial recharge: 149 MAD TTC (soit 124 MAD HT — ≈ 50 commandes) ; recharges suivantes dès 50 MAD ; recharge auto optionnelle (sous 30 MAD)"
+      fenceCopy: t("tier_starter_fence"),
+      toll: t("tier_starter_toll"),
+      walletInfo: t("tier_starter_wallet")
     },
     {
-      name: "PRO",
-      price: "599 MAD",
-      period: "/ mois TTC",
-      htEquivalent: "soit 499 MAD HT",
-      prixFondateur: "499 MAD / mois TTC",
-      features: [
-        "Commandes illimitées (0 MAD par commande)",
-        "2 écrans KDS",
-        "3 livreurs avec dispatching + Code PIN 4 chiffres",
-        "Geo-fencing livraison",
-        "CRM complet + statistiques avancées",
-      ],
+      name: t("tier_pro_name"),
+      price: t("tier_pro_price"),
+      period: t("tier_pro_period"),
+      htEquivalent: t("tier_pro_ht"),
+      prixFondateur: t("tier_pro_founder"),
+      features: t("tier_pro_features"),
       cta: t("pricing_pro_cta"),
       isPopular: true,
       isPrixFondateur: true,
-      callout: "Paiement annuel = 2 mois offerts",
-      microLine: "7 commandes / jour = Pro gratuit (599 ÷ 3 MAD ≈ 200 commandes/mois)"
+      callout: t("tier_pro_callout"),
+      microLine: t("tier_pro_micro")
     },
     {
-      name: "SCALE",
-      price: "1 299 MAD",
-      period: "/ mois TTC",
-      htEquivalent: "soit 1 082 MAD HT",
-      prixFondateur: "1 099 MAD / mois TTC",
-      features: [
-        "Commandes illimitées",
-        "Écrans KDS & livreurs illimités",
-        "Full CRM + Campagnes WhatsApp Boost",
-        "Fidélité / Parrainage",
-        "Export CRM brut",
-        "Support prioritaire",
-      ],
+      name: t("tier_scale_name"),
+      price: t("tier_scale_price"),
+      period: t("tier_scale_period"),
+      htEquivalent: t("tier_scale_ht"),
+      prixFondateur: t("tier_scale_founder"),
+      features: t("tier_scale_features"),
       cta: t("pricing_scale_cta"),
       isPopular: false,
       isPrixFondateur: true,
-      microLine: "Scale = votre facture Mymenu… avec la cuisine et les livreurs."
+      microLine: t("tier_scale_micro")
     },
     {
-      name: "MULTI",
-      price: "2 099 MAD",
-      period: "/ mois TTC",
-      htEquivalent: "soit 1 749 MAD HT",
-      prixFondateur: "1 799 MAD / mois TTC",
-      features: [
-        "Jusqu'à 5 points de vente (+349 MAD TTC / PDV supplémentaire)",
-        "Tout le pack Scale",
-        "Manager dédié",
-      ],
+      name: t("tier_multi_name"),
+      price: t("tier_multi_price"),
+      period: t("tier_multi_period"),
+      htEquivalent: t("tier_multi_ht"),
+      prixFondateur: t("tier_multi_founder"),
+      features: t("tier_multi_features"),
       cta: t("pricing_multi_cta"),
       isPopular: false,
       isPrixFondateur: true,
-      microLine: "Multi = 46 % moins cher que 3 × Scale."
+      microLine: t("tier_multi_micro")
     }
   ];
 
@@ -100,7 +76,7 @@ export default function PricingMatrix() {
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-16">
           {tiers.map((tier) => (
             <div
-              key={tier.name}
+              key={tier.name as string}
               className={`relative border border-grid-line p-8 flex flex-col ${
                 tier.isPopular ? "bg-[#1C1C1C]" : "bg-[#141414]"
               }`}
@@ -116,42 +92,42 @@ export default function PricingMatrix() {
               
               <div className="mb-8 mt-2">
                 <span className="font-plex-mono text-sm uppercase tracking-widest text-[#A3A3A3]">
-                  {tier.name}
+                  {tier.name as string}
                 </span>
                 <div className="mt-4 flex flex-col gap-1">
                   <div className="flex items-baseline gap-2">
-                    <span className="font-space font-bold text-4xl text-offwhite">{tier.price}</span>
+                    <span className="font-space font-bold text-4xl text-offwhite">{tier.price as string}</span>
                   </div>
-                  <span className="font-plex-sans text-[#737373] text-sm">{tier.period} ({tier.htEquivalent})</span>
+                  <span className="font-plex-sans text-[#737373] text-sm">{tier.period as string} ({tier.htEquivalent as string})</span>
                 </div>
 
                 {tier.isPrixFondateur && (
                   <div className="mt-4 bg-[#262626] border border-[#404040] p-3 text-sm">
                     <span className="block font-plex-sans font-bold text-saffron">{t("pricing_founder_life")}</span>
-                    <span className="block font-plex-mono text-offwhite">{tier.prixFondateur}</span>
+                    <span className="block font-plex-mono text-offwhite">{tier.prixFondateur as string}</span>
                   </div>
                 )}
                 
                 {tier.callout && (
                   <div className="mt-4 font-plex-sans font-medium text-mint text-sm">
-                    {tier.callout}
+                    {tier.callout as string}
                   </div>
                 )}
                 
                 {tier.toll && (
                   <div className="mt-4 space-y-2">
                     <div className="font-plex-sans text-xs text-[#D4D4D4] border-l-2 border-mint pl-3 py-1">
-                      {tier.toll}
+                      {tier.toll as string}
                     </div>
                     <div className="font-plex-sans text-xs text-[#A3A3A3]">
-                      {tier.walletInfo}
+                      {tier.walletInfo as string}
                     </div>
                   </div>
                 )}
               </div>
 
               <ul className="space-y-4 mb-8 flex-grow">
-                {tier.features.map((feature, i) => (
+                {(tier.features as string[]).map((feature: string, i: number) => (
                   <li key={i} className="flex items-start gap-3">
                     <span className="text-mint mt-1">●</span>
                     <span className="font-plex-sans text-[#D4D4D4] text-sm">{feature}</span>
@@ -161,13 +137,13 @@ export default function PricingMatrix() {
               
               {tier.fenceCopy && (
                 <div className="mb-6 font-plex-sans text-xs italic text-[#737373]">
-                  {tier.fenceCopy}
+                  {tier.fenceCopy as string}
                 </div>
               )}
 
               {tier.microLine && (
                 <div className="mb-6 font-plex-mono text-xs text-saffron border-t border-grid-line pt-4">
-                  {tier.microLine}
+                  {tier.microLine as string}
                 </div>
               )}
 
@@ -178,7 +154,7 @@ export default function PricingMatrix() {
                     : "border border-neutral-700 text-offwhite hover:border-neutral-500"
                 }`}
               >
-                {tier.cta}
+                {tier.cta as string}
               </button>
             </div>
           ))}

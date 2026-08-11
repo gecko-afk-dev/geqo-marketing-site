@@ -6,7 +6,7 @@ import { translations, TranslationKey } from "./translations";
 export function useTranslation() {
   const { locale, setLocale, dir } = useI18nContext();
 
-  const t = (key: TranslationKey): string => {
+  const t = (key: TranslationKey): any => {
     return translations[locale][key] || translations.en[key] || key;
   };
 
