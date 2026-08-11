@@ -1,2 +1,9 @@
-package-lock.json
-**/package-lock.json
+node_modules/
+.next/
+dist/
+out/
+build/
+.env
+.env.*
+.DS_Store
+*.log

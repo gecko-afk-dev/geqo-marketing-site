@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@theme {
+  --color-obsidian: #0A0A0A;
+  --color-saffron: #F59E0B;
+  --color-mint: #05CD99;
+  --color-critical: #E03131;
+  --color-grid-line: #262626;
+  --color-offwhite: #FAFAFA;
+
+  --font-space: var(--font-space-grotesk);
+  --font-plex-sans: var(--font-ibm-plex-sans);
+  --font-plex-mono: var(--font-ibm-plex-mono);
+  --font-plex-arabic: var(--font-ibm-plex-sans-arabic);
+}
+
+@layer base {
+  body {
+    @apply bg-obsidian text-offwhite font-plex-sans antialiased;
+  }
+}
