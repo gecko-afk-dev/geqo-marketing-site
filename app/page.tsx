@@ -5,6 +5,8 @@ import FinancialCalculator from "@/components/FinancialCalculator";
 import PricingMatrix from "@/components/PricingMatrix";
 import Footer from "@/components/Footer";
 
+export const dynamic = 'force-static';
+
 export default function Home() {
   return (
     <div className="min-h-screen bg-obsidian text-offwhite flex flex-col">
