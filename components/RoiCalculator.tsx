@@ -33,11 +33,11 @@ export default function RoiCalculator() {
   const { lang } = useLanguage();
   const t = translations[lang];
 
-  const [ordersPerDay, setOrdersPerDay] = useState(40);
-  const [basketSize, setBasketSize] = useState(65);
+  const [ordersPerMonth, setOrdersPerMonth] = useState(150);
+  const [basketSize, setBasketSize] = useState(80);
 
-  const aggregatorCost = ordersPerDay * basketSize * 0.25 * 30;
-  const geqoCost = ordersPerDay * 3.0 * 30;
+  const aggregatorCost = ordersPerMonth * basketSize * 0.25;
+  const geqoCost = ordersPerMonth * 3.0;
   const netGain = aggregatorCost - geqoCost;
 
   return (
@@ -62,15 +62,15 @@ export default function RoiCalculator() {
             <div className="space-y-4">
               <div className="flex justify-between items-center text-sm font-bold text-neutral-200">
                 <label htmlFor="orders-slider">{t.calc_slider1}</label>
-                <span className="text-amber-500 text-lg">{ordersPerDay}</span>
+                <span className="text-amber-500 text-lg">{ordersPerMonth}</span>
               </div>
               <input
                 id="orders-slider"
                 type="range"
                 min="10"
-                max="200"
-                value={ordersPerDay}
-                onChange={(e) => setOrdersPerDay(Number(e.target.value))}
+                max="500"
+                value={ordersPerMonth}
+                onChange={(e) => setOrdersPerMonth(Number(e.target.value))}
                 className="w-full h-2 bg-neutral-800 rounded-lg appearance-none cursor-pointer accent-amber-500"
               />
             </div>
@@ -84,7 +84,7 @@ export default function RoiCalculator() {
                 id="basket-slider"
                 type="range"
                 min="30"
-                max="200"
+                max="1000"
                 value={basketSize}
                 onChange={(e) => setBasketSize(Number(e.target.value))}
                 className="w-full h-2 bg-neutral-800 rounded-lg appearance-none cursor-pointer accent-amber-500"
@@ -118,13 +118,13 @@ export default function RoiCalculator() {
             </div>
 
             <div className="pt-6">
-              <div className="text-sm font-bold text-emerald-500/80 mb-2 rtl:text-right text-left uppercase tracking-widest">
+              <div className="text-sm font-bold text-[#05CD99] mb-2 rtl:text-right text-left uppercase tracking-widest">
                 {t.calc_net}
               </div>
-              <div className="text-5xl lg:text-6xl font-black text-emerald-500 flex flex-row items-baseline justify-end rtl:justify-end gap-2 w-full" dir="ltr">
+              <div className="text-5xl lg:text-6xl font-black text-[#05CD99] flex flex-row items-baseline justify-end rtl:justify-end gap-2 w-full" dir="ltr">
                 <span>+</span>
                 <AnimatedCounter value={netGain} />
-                <span className="text-3xl font-bold text-emerald-500/70 ml-2">MAD</span>
+                <span className="text-3xl font-bold text-[#05CD99]/70 ml-2">MAD</span>
               </div>
             </div>
           </motion.div>

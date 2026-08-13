@@ -31,6 +31,9 @@ const ibmPlexArabic = IBM_Plex_Sans_Arabic({
 export const metadata: Metadata = {
   title: "GEQO - The High-Velocity Engine Running on Your Kitchen Walls",
   description: "Replace tablet chaos with a single Vue 3 KDS, instant WhatsApp PWA ordering, and 0% commission.",
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 import { LanguageProvider } from "@/lib/i18n/LanguageContext";

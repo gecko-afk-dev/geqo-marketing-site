@@ -45,7 +45,7 @@ export default function Header() {
             ))}
           </div>
           <a
-            href="#beta-claim-form"
+            href="#claim-form"
             className="hidden sm:inline-block bg-saffron text-obsidian font-bold px-5 py-2.5 text-sm uppercase tracking-wide hover:bg-amber-400 transition-colors"
           >
             {t("header_cta")}

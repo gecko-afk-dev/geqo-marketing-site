@@ -41,7 +41,7 @@ export default function HeroSection() {
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 mb-8">
               <a
-                href="#beta-claim-form"
+                href="#claim-form"
                 className="bg-saffron text-obsidian font-bold px-8 py-4 text-lg hover:bg-amber-400 transition-colors inline-block text-center uppercase tracking-wide"
               >
                 {t("cta_join_beta")}

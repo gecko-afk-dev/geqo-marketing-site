@@ -147,15 +147,16 @@ export default function PricingMatrix() {
                 </div>
               )}
 
-              <button
-                className={`w-full font-bold uppercase tracking-wide py-3 px-4 transition-colors ${
+              <a
+                href="#claim-form"
+                className={`block text-center w-full font-bold uppercase tracking-wide py-3 px-4 transition-colors ${
                   tier.isPopular
                     ? "bg-saffron text-obsidian hover:bg-amber-400"
                     : "border border-neutral-700 text-offwhite hover:border-neutral-500"
                 }`}
               >
                 {tier.cta as string}
-              </button>
+              </a>
             </div>
           ))}
         </div>
