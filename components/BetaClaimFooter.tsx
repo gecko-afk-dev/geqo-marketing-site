@@ -4,12 +4,12 @@ import { useState, useEffect, Suspense } from "react";
 import { motion } from "framer-motion";
 import { swissContainerVariants, swissItemVariants } from "@/lib/motion";
 import { useSearchParams } from "next/navigation";
-import { useI18nContext } from "@/lib/i18n/i18n-context";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 import { translations } from "@/lib/i18n/translations";
 
 function BetaFormLogic() {
-  const { locale } = useI18nContext();
-  const t = translations[locale];
+  const { lang } = useLanguage();
+  const t = translations[lang];
   
   const searchParams = useSearchParams();
   const paramCode = searchParams.get("card") || searchParams.get("code") || "";

@@ -46,6 +46,10 @@ export default function Footer() {
               <Link href="/privacy" className="text-offwhite hover:text-saffron transition-colors">
                 {t("footer_privacy")}
               </Link>
+              <span className="text-grid-line">|</span>
+              <Link href="/data-deletion" className="text-offwhite hover:text-saffron transition-colors">
+                {t("footer_data_deletion")}
+              </Link>
             </div>
             
             <div className="space-y-2">

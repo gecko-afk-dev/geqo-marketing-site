@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, animate } from "framer-motion";
 import { swissContainerVariants, swissItemVariants } from "@/lib/motion";
-import { useI18nContext } from "@/lib/i18n/i18n-context";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 import { translations } from "@/lib/i18n/translations";
 
 function AnimatedCounter({ value }: { value: number }) {
@@ -30,8 +30,8 @@ function AnimatedCounter({ value }: { value: number }) {
 }
 
 export default function RoiCalculator() {
-  const { locale } = useI18nContext();
-  const t = translations[locale];
+  const { lang } = useLanguage();
+  const t = translations[lang];
 
   const [ordersPerDay, setOrdersPerDay] = useState(40);
   const [basketSize, setBasketSize] = useState(65);

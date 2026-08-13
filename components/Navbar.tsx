@@ -1,13 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { useI18nContext } from "@/lib/i18n/i18n-context";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 import { translations, Locale } from "@/lib/i18n/translations";
 import Image from "next/image";
 
 export default function Navbar() {
-  const { locale, setLocale } = useI18nContext();
-  const t = translations[locale];
+  const { lang, setLang } = useLanguage();
+  const t = translations[lang];
 
   const scrollToBeta = () => {
     document.getElementById('beta-claim-form')?.scrollIntoView({ behavior: 'smooth' });
@@ -30,9 +30,9 @@ export default function Navbar() {
             {(['fr', 'ar', 'en'] as Locale[]).map((l) => (
               <button
                 key={l}
-                onClick={() => setLocale(l)}
+                onClick={() => setLang(l)}
                 className={`text-sm font-mono uppercase tracking-widest transition-colors ${
-                  locale === l ? 'text-amber-500 font-bold' : 'text-neutral-500 hover:text-neutral-300'
+                  lang === l ? 'text-amber-500 font-bold' : 'text-neutral-500 hover:text-neutral-300'
                 }`}
               >
                 {l}
