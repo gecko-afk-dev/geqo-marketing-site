@@ -1,4 +1,29 @@
 const fs = require('fs');
+const sanitizeHtml = require('sanitize-html');
+
+const sanitizeConfig = {
+  allowedTags: [
+    'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
+    'p', 'ul', 'ol', 'li', 'strong', 'em',
+    'a', 'blockquote', 'table', 'thead', 'tbody', 'tr', 'th', 'td'
+  ],
+  allowedAttributes: {
+    'a': ['href', 'rel', 'target']
+  },
+  allowedIframeHostnames: [],
+  allowProtocolRelative: false,
+  transformTags: {
+    'a': (tagName, attribs) => {
+      // Enforce rel="noopener noreferrer" for safety
+      attribs.rel = 'noopener noreferrer';
+      return {
+        tagName,
+        attribs
+      };
+    }
+  },
+  allowedSchemes: ['http', 'https', 'mailto']
+};
 
 function processHtml(filename) {
     let html = fs.readFileSync(filename, 'utf-8');
@@ -14,12 +39,12 @@ const privacyHtml = processHtml('lib/privacy.html');
 
 // For terms, split by English Version
 const termsParts = termsHtml.split(/<h1>GEQO TERMS OF SERVICE \(English Version\)<\/h1>/i);
-const termsFr = termsParts[0];
-const termsEn = '<h1>GEQO TERMS OF SERVICE (English Version)</h1>' + (termsParts[1] ? termsParts[1].split(/<h1>NOTES DE RÉDACTION \/ DRAFTING NOTES \(à retirer avant publication\)<\/h1>/i)[0] : '');
+const termsFr = sanitizeHtml(termsParts[0], sanitizeConfig);
+const termsEn = sanitizeHtml('<h1>GEQO TERMS OF SERVICE (English Version)</h1>' + (termsParts[1] ? termsParts[1].split(/<h1>NOTES DE RÉDACTION \/ DRAFTING NOTES \(à retirer avant publication\)<\/h1>/i)[0] : ''), sanitizeConfig);
 
 const privacyParts = privacyHtml.split(/<h1>GEQO PRIVACY POLICY \(English Version\)<\/h1>/i);
-const privacyFr = privacyParts[0];
-const privacyEn = '<h1>GEQO PRIVACY POLICY (English Version)</h1>' + (privacyParts[1] ? privacyParts[1].split(/<h1>NOTES DE RÉDACTION \/ DRAFTING NOTES \(à retirer avant publication\)<\/h1>/i)[0] : '');
+const privacyFr = sanitizeHtml(privacyParts[0], sanitizeConfig);
+const privacyEn = sanitizeHtml('<h1>GEQO PRIVACY POLICY (English Version)</h1>' + (privacyParts[1] ? privacyParts[1].split(/<h1>NOTES DE RÉDACTION \/ DRAFTING NOTES \(à retirer avant publication\)<\/h1>/i)[0] : ''), sanitizeConfig);
 
 function generatePage(title, frContent, enContent) {
     return `"use client";
