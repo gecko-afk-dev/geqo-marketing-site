@@ -41,8 +41,8 @@ export default function RoiCalculator() {
   const netGain = aggregatorCost - geqoCost;
 
   return (
-    <section className="py-16" id="roi-calculator">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-16 md:py-24" id="roi-calculator">
+      <div className="max-w-[1280px] mx-auto px-4 md:px-8">
         <motion.div 
           className="grid grid-cols-12 gap-6 lg:gap-8"
           variants={swissContainerVariants}
@@ -71,7 +71,7 @@ export default function RoiCalculator() {
                 max="500"
                 value={ordersPerMonth}
                 onChange={(e) => setOrdersPerMonth(Number(e.target.value))}
-                className="w-full h-2 bg-neutral-800 rounded-lg appearance-none cursor-pointer accent-amber-500"
+                className="w-full h-2 bg-neutral-800 rounded-none appearance-none cursor-pointer accent-amber-500"
               />
             </div>
 
@@ -87,7 +87,7 @@ export default function RoiCalculator() {
                 max="1000"
                 value={basketSize}
                 onChange={(e) => setBasketSize(Number(e.target.value))}
-                className="w-full h-2 bg-neutral-800 rounded-lg appearance-none cursor-pointer accent-amber-500"
+                className="w-full h-2 bg-neutral-800 rounded-none appearance-none cursor-pointer accent-amber-500"
               />
             </div>
           </motion.div>
@@ -121,7 +121,7 @@ export default function RoiCalculator() {
               <div className="text-sm font-bold text-[#05CD99] mb-2 rtl:text-right text-left uppercase tracking-widest">
                 {t.calc_net}
               </div>
-              <div className="text-5xl lg:text-6xl font-black text-[#05CD99] flex flex-row items-baseline justify-end rtl:justify-end gap-2 w-full" dir="ltr">
+              <div className="font-mono-data flex flex-row items-baseline justify-end rtl:justify-end gap-2 w-full" dir="ltr">
                 <span>+</span>
                 <AnimatedCounter value={netGain} />
                 <span className="text-3xl font-bold text-[#05CD99]/70 ml-2">MAD</span>

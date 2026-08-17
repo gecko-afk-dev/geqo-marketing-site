@@ -33,8 +33,8 @@ export default function FeatureMatrix() {
   ];
 
   return (
-    <section className="py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-16 md:py-24">
+      <div className="max-w-[1280px] mx-auto px-4 md:px-8">
         <motion.div 
           className="grid grid-cols-12 gap-6 lg:gap-8"
           variants={swissContainerVariants}

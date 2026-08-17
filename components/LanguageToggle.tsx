@@ -14,7 +14,7 @@ export default function LanguageToggle() {
 
   return (
     <div className="flex justify-end mb-8 font-plex-mono text-sm" role="radiogroup" aria-label="Language selector">
-      <div className="inline-flex bg-[#141414] border border-[#262626] rounded overflow-hidden">
+      <div className="inline-flex bg-[#141414] border border-[#262626] rounded-none overflow-hidden">
         {LANGUAGE_OPTIONS.map((option) => (
           <button
             key={option.value}

@@ -18,7 +18,7 @@ export default function ParallaxBreak() {
       <div className="absolute inset-0 bg-[#0A0A0A]/85 backdrop-blur-[2px] mix-blend-multiply" />
 
       {/* Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div className="relative z-10 max-w-[1280px] mx-auto px-4 md:px-8 w-full">
         <motion.div
           variants={swissContainerVariants}
           initial="hidden"

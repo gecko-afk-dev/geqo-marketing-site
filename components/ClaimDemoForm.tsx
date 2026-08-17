@@ -81,7 +81,7 @@ function ClaimFormLogic() {
         className="col-span-12 bg-[#141414] border border-[#05CD99] p-8 lg:p-12 flex flex-col items-center text-center rounded-none"
         id="claim-form"
       >
-        <div className="w-16 h-16 bg-[#05CD99]/10 rounded-full flex items-center justify-center mb-6">
+        <div className="w-16 h-16 bg-[#05CD99]/10 rounded-none flex items-center justify-center mb-6">
           <span className="text-[#05CD99] text-3xl">✓</span>
         </div>
         <h2 className="text-3xl md:text-4xl font-bold text-[#05CD99] mb-4">Request Received</h2>
@@ -172,7 +172,7 @@ function ClaimFormLogic() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full bg-amber-500 text-neutral-950 px-8 py-4 font-bold tracking-widest uppercase hover:bg-amber-400 transition-colors active:scale-95 disabled:opacity-70 mt-2"
+            className="w-full h-[56px] px-8 bg-[#F59E0B] text-[#0A0A0A] font-bold rounded-none uppercase tracking-wide hover:bg-amber-400 transition-colors mt-2"
           >
             {isSubmitting ? "..." : t.form_submit_beta}
           </button>
@@ -184,8 +184,8 @@ function ClaimFormLogic() {
 
 export default function ClaimDemoForm() {
   return (
-    <section className="py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-16 md:py-24">
+      <div className="max-w-[1280px] mx-auto px-4 md:px-8">
         <motion.div 
           className="grid grid-cols-12"
           variants={swissContainerVariants}
