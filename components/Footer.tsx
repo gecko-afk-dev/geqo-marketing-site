@@ -68,7 +68,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center text-xs font-plex-mono text-[#525252] tracking-wider uppercase">
           <span>{t("footer_rights")}</span>
           <div className="mt-4 md:mt-0 flex gap-4">
-            <a href="https://wa.me/212000000000" className="hover:text-mint transition-colors">{t("footer_contact")}</a>
+            <a href="https://wa.me/212000000000" target="_blank" rel="noopener noreferrer" className="hover:text-mint transition-colors">{t("footer_contact")}</a>
           </div>
         </div>
       </div>
