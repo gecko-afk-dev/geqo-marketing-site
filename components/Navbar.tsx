@@ -15,7 +15,7 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 w-full bg-[#0A0A0A]/90 backdrop-blur-md border-b border-neutral-800">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1280px] mx-auto px-4 md:px-8">
         <div className="grid grid-cols-12 gap-6 lg:gap-8 items-center h-20">
           
           {/* Logo (col 1-3) */}
@@ -44,7 +44,7 @@ export default function Navbar() {
           <div className="hidden md:flex col-span-3 justify-end">
             <button 
               onClick={scrollToBeta}
-              className="bg-neutral-50 text-neutral-950 font-bold px-5 py-2.5 hover:bg-neutral-200 transition-colors"
+              className="h-[56px] px-8 bg-[#F59E0B] text-[#0A0A0A] font-bold rounded-none uppercase tracking-wide hover:bg-amber-400 transition-colors"
             >
               {t.cta_join_beta}
             </button>

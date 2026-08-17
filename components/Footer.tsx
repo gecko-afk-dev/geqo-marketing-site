@@ -8,8 +8,8 @@ export default function Footer() {
   const { t } = useLanguage();
 
   return (
-    <footer className="bg-obsidian border-t border-grid-line pt-16 pb-12">
-      <div className="max-w-[1440px] mx-auto px-6">
+    <footer className="bg-obsidian border-t border-grid-line py-16 md:py-24">
+      <div className="max-w-[1280px] mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 border-b border-grid-line pb-12 mb-8">
           
           {/* Brand & Corporate Entities */}

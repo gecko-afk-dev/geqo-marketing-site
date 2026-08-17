@@ -112,12 +112,12 @@ export default function DataDeletionForm() {
   if (status === "success") {
     return (
       <div
-        className="border-2 border-mint bg-[#0A1F18] rounded-lg p-8 space-y-4 animate-in fade-in"
+        className="border-2 border-mint bg-[#0A1F18] rounded-none-none p-8 space-y-4 animate-in fade-in"
         role="alert"
         aria-live="polite"
       >
         <div className="flex items-center gap-3 mb-4">
-          <div className="w-10 h-10 rounded-full bg-mint/20 flex items-center justify-center">
+          <div className="w-10 h-10 rounded-none-none bg-mint/20 flex items-center justify-center">
             <svg className="w-5 h-5 text-mint" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
             </svg>
@@ -158,7 +158,7 @@ export default function DataDeletionForm() {
           placeholder={t("deletion_email_placeholder") as string}
           className={`w-full bg-[#141414] border ${
             errors.email ? "border-critical" : "border-[#262626]"
-          } rounded px-4 py-3 text-offwhite font-plex-sans placeholder:text-[#525252] focus:outline-none focus:border-saffron focus:ring-1 focus:ring-saffron/30 transition-colors`}
+          } rounded-none px-4 py-3 text-offwhite font-plex-sans placeholder:text-[#525252] focus:outline-none focus:border-saffron focus:ring-1 focus:ring-saffron/30 transition-colors`}
           dir={lang === "ar" ? "rtl" : "ltr"}
         />
         {errors.email && (
@@ -183,7 +183,7 @@ export default function DataDeletionForm() {
           placeholder={t("deletion_phone_placeholder") as string}
           className={`w-full bg-[#141414] border ${
             errors.phone ? "border-critical" : "border-[#262626]"
-          } rounded px-4 py-3 text-offwhite font-plex-sans placeholder:text-[#525252] focus:outline-none focus:border-saffron focus:ring-1 focus:ring-saffron/30 transition-colors`}
+          } rounded-none px-4 py-3 text-offwhite font-plex-sans placeholder:text-[#525252] focus:outline-none focus:border-saffron focus:ring-1 focus:ring-saffron/30 transition-colors`}
           dir="ltr"
         />
         {errors.phone && (
@@ -200,7 +200,7 @@ export default function DataDeletionForm() {
           id="deletion-account-type"
           value={accountType}
           onChange={(e) => setAccountType(e.target.value)}
-          className="w-full bg-[#141414] border border-[#262626] rounded px-4 py-3 text-offwhite font-plex-sans focus:outline-none focus:border-saffron focus:ring-1 focus:ring-saffron/30 transition-colors appearance-none cursor-pointer"
+          className="w-full bg-[#141414] border border-[#262626] rounded-none px-4 py-3 text-offwhite font-plex-sans focus:outline-none focus:border-saffron focus:ring-1 focus:ring-saffron/30 transition-colors appearance-none cursor-pointer"
           dir={lang === "ar" ? "rtl" : "ltr"}
         >
           <option value="consumer">{t("deletion_account_consumer")}</option>
@@ -220,7 +220,7 @@ export default function DataDeletionForm() {
           placeholder={t("deletion_reason_placeholder") as string}
           rows={4}
           maxLength={1000}
-          className="w-full bg-[#141414] border border-[#262626] rounded px-4 py-3 text-offwhite font-plex-sans placeholder:text-[#525252] focus:outline-none focus:border-saffron focus:ring-1 focus:ring-saffron/30 transition-colors resize-none"
+          className="w-full bg-[#141414] border border-[#262626] rounded-none px-4 py-3 text-offwhite font-plex-sans placeholder:text-[#525252] focus:outline-none focus:border-saffron focus:ring-1 focus:ring-saffron/30 transition-colors resize-none"
           dir={lang === "ar" ? "rtl" : "ltr"}
         />
       </div>
@@ -229,7 +229,7 @@ export default function DataDeletionForm() {
       <div className="space-y-2">
         <label
           htmlFor="deletion-confirm"
-          className={`flex items-start gap-3 cursor-pointer group p-4 rounded border ${
+          className={`flex items-start gap-3 cursor-pointer group p-4 rounded-none border ${
             errors.confirm ? "border-critical bg-critical/5" : "border-[#262626] bg-[#141414]"
           } transition-colors hover:border-[#3a3a3a]`}
         >
@@ -263,9 +263,9 @@ export default function DataDeletionForm() {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className={`w-full font-plex-mono font-bold tracking-widest uppercase text-sm py-4 rounded border transition-all duration-300 ${
+        className={`w-full h-[56px] px-8 font-bold tracking-wide uppercase rounded-none transition-all duration-300 ${
           status === "submitting"
-            ? "bg-[#262626] border-[#3a3a3a] text-[#525252] cursor-not-allowed"
+            ? "bg-[#262626] border-[#3a3a3a] text-[#525252] cursor-not-allowed border"
             : "bg-critical/10 border-critical text-critical hover:bg-critical hover:text-white cursor-pointer"
         }`}
       >

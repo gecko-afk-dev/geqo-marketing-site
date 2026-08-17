@@ -14,8 +14,8 @@ export default function Hero() {
   };
 
   return (
-    <section className="pt-24 pb-16 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-16 md:py-24 overflow-hidden">
+      <div className="max-w-[1280px] mx-auto px-4 md:px-8">
         <motion.div 
           className="grid grid-cols-12 gap-6 lg:gap-8 items-center"
           variants={swissContainerVariants}
@@ -31,14 +31,14 @@ export default function Hero() {
             
             <motion.h1 
               variants={swissItemVariants}
-              className="font-black tracking-tight leading-[0.95] text-neutral-50 text-5xl lg:text-7xl rtl:text-right text-left"
+              className="font-hero text-neutral-50 rtl:text-right text-left"
             >
               {t.hero_headline}
             </motion.h1>
             
             <motion.p 
               variants={swissItemVariants}
-              className="text-neutral-400 text-lg lg:text-xl max-w-xl rtl:text-right text-left"
+              className="font-lg text-neutral-400 max-w-xl rtl:text-right text-left"
             >
               {t.hero_subheadline}
             </motion.p>
@@ -49,13 +49,13 @@ export default function Hero() {
             >
               <button 
                 onClick={scrollToBeta}
-                className="bg-amber-500 text-neutral-950 font-bold px-6 py-4 hover:bg-amber-400 transition-colors text-center"
+                className="h-[56px] px-8 bg-[#F59E0B] text-[#0A0A0A] font-bold rounded-none uppercase tracking-wide hover:bg-amber-400 transition-colors"
               >
                 {t.cta_join_beta}
               </button>
               <button 
                 onClick={() => document.getElementById('roi-calculator')?.scrollIntoView({ behavior: 'smooth' })}
-                className="border border-neutral-700 hover:border-neutral-500 text-neutral-200 px-6 py-4 transition-colors text-center font-medium"
+                className="h-[56px] px-8 bg-transparent border border-neutral-700 text-[#FAFAFA] font-bold rounded-none uppercase tracking-wide hover:border-neutral-500 transition-colors"
               >
                 {t.hero_btn_calc}
               </button>
@@ -86,8 +86,8 @@ export default function Hero() {
                 </div>
                 
                 {/* JWT Magic Link Button */}
-                <div className="bg-amber-500/10 border border-amber-500/30 rounded-xl p-4 w-full max-w-[85%]">
-                  <button className="w-full bg-amber-500 text-neutral-950 font-bold py-3 rounded-lg text-sm transition-transform active:scale-95">
+                <div className="bg-[#F59E0B]/10 border border-[#F59E0B]/30 rounded-xl p-4 w-full max-w-[85%]">
+                  <button className="w-full h-[56px] px-8 bg-[#F59E0B] text-[#0A0A0A] font-bold rounded-none uppercase tracking-wide hover:bg-amber-400 transition-transform active:scale-95 text-sm">
                     {t.hero_bot_btn}
                   </button>
                 </div>

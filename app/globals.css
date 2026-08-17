@@ -14,6 +14,24 @@
   --font-plex-arabic: var(--font-ibm-plex-sans-arabic);
 }
 
+@utility font-hero {
+  font-family: var(--font-space);
+  font-size: 64px;
+  line-height: 1;
+}
+
+@utility font-lg {
+  font-family: var(--font-plex-sans);
+  font-size: 18px;
+  line-height: 28px;
+}
+
+@utility font-mono-data {
+  font-family: var(--font-plex-mono);
+  font-size: 48px;
+  color: var(--color-mint);
+}
+
 @layer base {
   body {
     @apply bg-obsidian text-offwhite font-plex-sans antialiased;

@@ -59,8 +59,8 @@ export default function PricingMatrix() {
   ];
 
   return (
-    <section className="py-24 bg-obsidian border-b border-grid-line">
-      <div className="max-w-[1440px] mx-auto px-6">
+    <section className="py-16 md:py-24 bg-obsidian border-b border-grid-line">
+      <div className="max-w-[1280px] mx-auto px-4 md:px-8">
         <div className="mb-16 text-center">
           <h2 className="font-space font-bold text-4xl text-offwhite mb-4">
             {t("pricing_title")}
@@ -149,10 +149,10 @@ export default function PricingMatrix() {
 
               <a
                 href="#claim-form"
-                className={`block text-center w-full font-bold uppercase tracking-wide py-3 px-4 transition-colors ${
+                className={`flex items-center justify-center h-[56px] px-8 w-full font-bold rounded-none uppercase tracking-wide transition-colors ${
                   tier.isPopular
-                    ? "bg-saffron text-obsidian hover:bg-amber-400"
-                    : "border border-neutral-700 text-offwhite hover:border-neutral-500"
+                    ? "bg-[#F59E0B] text-[#0A0A0A] hover:bg-amber-400"
+                    : "bg-transparent border border-neutral-700 text-[#FAFAFA] hover:border-neutral-500"
                 }`}
               >
                 {tier.cta as string}
@@ -166,7 +166,7 @@ export default function PricingMatrix() {
           <div className="bg-saffron text-obsidian font-bold p-4 text-center tracking-wide font-plex-mono uppercase text-sm">
             {/* [PRIX FONDATEUR LOCK] */}
             {t("pricing_founder_banner")}
-            <div className="mt-2 h-2 bg-obsidian/20 max-w-md mx-auto rounded-full overflow-hidden">
+            <div className="mt-2 h-2 bg-obsidian/20 max-w-md mx-auto rounded-none overflow-hidden">
               <div className="h-full bg-obsidian w-[87%]" />
             </div>
             <div className="mt-1 text-xs opacity-80">{t("pricing_founder_spots")}</div>

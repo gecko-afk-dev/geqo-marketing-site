@@ -33,9 +33,9 @@ export default function FeatureGrid() {
   ];
 
   return (
-    <section className="py-24 border-b border-grid-line bg-[#050505]">
-      <div className="max-w-[1440px] mx-auto px-6">
-        <div className="grid grid-cols-12 md:grid-cols-16 gap-6 mb-16">
+    <section className="py-16 md:py-24 border-b border-grid-line bg-[#050505]">
+      <div className="max-w-[1280px] mx-auto px-4 md:px-8">
+        <div className="grid grid-cols-12 gap-6 md:gap-8 mb-16">
           <div className="col-span-12 md:col-span-14 lg:col-span-10 md:col-start-2">
             <h2 className="font-space font-bold text-4xl text-offwhite mb-4">
               {t("feat_section_title")}
