@@ -102,12 +102,19 @@ export const translations = {
     footer_compliance_1: "Compliant with Law 31-08 on consumer protection. 0% commission applies to direct orders processed via the GEQO system.",
     footer_compliance_2: "Compliant with Law 09-08 (CNDP) · No data selling — ever.",
     footer_rights: "© 2026 GEQO SARL AU. ALL RIGHTS RESERVED.",
-    footer_contact: "WhatsApp Contact",
+    footer_contact: "Contact",
 
     // Legal Navigation
     back_to_home: "← Back to Main Page",
     version_meta: "Version 1.1 — Effective: — · Last updated: —",
     legal_ar_placeholder: "The Arabic version is under preparation — please refer to the French or English version.",
+
+    // Contact Page
+    contact_heading: "Contact Us",
+    contact_sales_label: "Sales & General Inquiries",
+    contact_sales_desc: "Upgrades, pricing, partnerships, demos.",
+    contact_support_label: "Support",
+    contact_support_desc: "Existing restaurants: technical issues, billing/wallet, payment receipts.",
 
     // Data Deletion Page
     deletion_title: "Data Deletion Request",
@@ -268,12 +275,19 @@ export const translations = {
     footer_compliance_1: "Conforme à la Loi 31-08 édictant des mesures de protection du consommateur. 0% commission s'applique aux commandes directes traitées via le système GEQO.",
     footer_compliance_2: "Conforme Loi 09-08 (CNDP) · Aucune vente de données — jamais.",
     footer_rights: "© 2026 GEQO SARL AU. ALL RIGHTS RESERVED.",
-    footer_contact: "WhatsApp Contact",
+    footer_contact: "Contact",
 
     // Legal Navigation
     back_to_home: "← Retour à l'Accueil",
     version_meta: "Version 1.1 — Entrée en vigueur : — · Dernière mise à jour : —",
     legal_ar_placeholder: "النسخة العربية قيد الإعداد — يرجى الرجوع إلى النسخة الفرنسية أو الإنجليزية",
+
+    // Contact Page
+    contact_heading: "Contactez-nous",
+    contact_sales_label: "Ventes & informations générales",
+    contact_sales_desc: "Mises à niveau, tarifs, partenariats, démonstrations.",
+    contact_support_label: "Support",
+    contact_support_desc: "Restaurants existants : problèmes techniques, facturation / portefeuille, reçus de paiement.",
 
     // Data Deletion Page
     deletion_title: "Demande de Suppression des Données",
@@ -434,12 +448,19 @@ export const translations = {
     footer_compliance_1: "متوافق مع القانون 31-08 المتعلق بحماية المستهلك. تطبق 0% عمولة على الطلبات المباشرة.",
     footer_compliance_2: "متوافق مع القانون 09-08 · لا يتم بيع البيانات — أبداً.",
     footer_rights: "© 2026 GEQO SARL AU. جميع الحقوق محفوظة.",
-    footer_contact: "تواصل عبر واتساب",
+    footer_contact: "اتصل بنا",
 
     // Legal Navigation
     back_to_home: "العودة إلى الصفحة الرئيسية ←",
     version_meta: "الإصدار 1.1 — تاريخ السريان: — · آخر تحديث: —",
     legal_ar_placeholder: "النسخة العربية قيد الإعداد — يرجى الرجوع إلى النسخة الفرنسية أو الإنجليزية",
+
+    // Contact Page
+    contact_heading: "اتصل بنا",
+    contact_sales_label: "المبيعات والاستفسارات العامة",
+    contact_sales_desc: "الترقيات، الأسعار، الشراكات، العروض التوضيحية.",
+    contact_support_label: "الدعم الفني",
+    contact_support_desc: "للمطاعم الحالية: المشاكل التقنية، الفوترة/المحفظة، إيصالات الدفع.",
 
     // Data Deletion Page
     deletion_title: "طلب حذف البيانات",

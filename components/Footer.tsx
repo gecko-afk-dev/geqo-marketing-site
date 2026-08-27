@@ -50,6 +50,10 @@ export default function Footer() {
               <Link href="/data-deletion" className="text-offwhite hover:text-saffron transition-colors">
                 {t("footer_data_deletion")}
               </Link>
+              <span className="text-grid-line">|</span>
+              <Link href="/contact" className="text-offwhite hover:text-saffron transition-colors">
+                {t("footer_contact")}
+              </Link>
             </div>
             
             <div className="space-y-2">
@@ -67,9 +71,6 @@ export default function Footer() {
 
         <div className="flex flex-col md:flex-row justify-between items-center text-xs font-plex-mono text-[#525252] tracking-wider uppercase">
           <span>{t("footer_rights")}</span>
-          <div className="mt-4 md:mt-0 flex gap-4">
-            <a href="https://wa.me/212000000000" target="_blank" rel="noopener noreferrer" className="hover:text-mint transition-colors">{t("footer_contact")}</a>
-          </div>
         </div>
       </div>
     </footer>
