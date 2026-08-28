@@ -1,9 +1,55 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
+import { motion, useReducedMotion, useInView, Variants } from "framer-motion";
+import { swissContainerVariants, swissItemVariants } from "@/lib/motion";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
+
+// useReducedMotion() can resolve synchronously on the client's first render
+// (before hydration completes), which would mismatch the SSR output —
+// always false — and throw a hydration error. Gate it behind mount so the
+// first client render matches the server, then adopt the real value.
+function useSafeReducedMotion() {
+  const [safe, setSafe] = useState(false);
+  const reduced = useReducedMotion();
+  useEffect(() => { setSafe(true); }, []);
+  return safe ? reduced : false;
+}
 
 export default function PricingMatrix() {
   const { t } = useLanguage();
+  const prefersReducedMotion = useSafeReducedMotion();
+  const gridRef = useRef(null);
+  const inView = useInView(gridRef, { once: true, amount: 0.2 });
+
+  // When reduced motion is preferred, skip the animation entirely — render final state.
+  const containerVariants = prefersReducedMotion
+    ? { hidden: { opacity: 1 }, visible: { opacity: 1 } }
+    : swissContainerVariants;
+  const itemVariants = prefersReducedMotion
+    ? { hidden: { opacity: 1, y: 0 }, visible: { opacity: 1, y: 0 } }
+    : swissItemVariants;
+
+  // Pro tier gets the same entrance as its siblings, plus a one-time amber
+  // glow pulse (peaking ~30% through) fired off the same inView state.
+  const proVariants: Variants = prefersReducedMotion
+    ? { hidden: { opacity: 1, y: 0 }, visible: { opacity: 1, y: 0 } }
+    : {
+        hidden: { opacity: 0, y: 20, boxShadow: "0 0 0px 0px rgba(245,158,11,0)" },
+        visible: {
+          opacity: 1,
+          y: 0,
+          boxShadow: [
+            "0 0 0px 0px rgba(245,158,11,0)",
+            "0 0 40px 8px rgba(245,158,11,0.35)",
+            "0 0 0px 0px rgba(245,158,11,0)",
+          ],
+          transition: {
+            default: { duration: 0.5, ease: [0.16, 1, 0.3, 1] },
+            boxShadow: { duration: 1.3, ease: [0.16, 1, 0.3, 1], times: [0, 0.3, 1] },
+          },
+        },
+      };
 
   const tiers = [
     {
@@ -73,14 +119,38 @@ export default function PricingMatrix() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-16">
+        <motion.div
+          ref={gridRef}
+          variants={containerVariants}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+          className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-16"
+        >
           {tiers.map((tier) => (
-            <div
+            <motion.div
               key={tier.name as string}
-              className={`relative border border-grid-line p-8 flex flex-col ${
-                tier.isPopular ? "bg-[#1C1C1C]" : "bg-[#141414]"
+              variants={tier.isPopular ? proVariants : itemVariants}
+              whileHover={
+                prefersReducedMotion
+                  ? undefined
+                  : tier.isPopular
+                    // The Pro card's own entrance/glow animation writes an inline
+                    // boxShadow style, which would silently beat a CSS hover:shadow
+                    // utility (inline style always wins over a stylesheet rule for
+                    // the same property) — so its hover shadow has to go through
+                    // framer-motion too, not Tailwind.
+                    ? { y: -3, boxShadow: "0px 18px 40px -16px rgba(245,158,11,0.18)", transition: { duration: 0.35, ease: [0.16, 1, 0.3, 1] } }
+                    : { y: -3, transition: { duration: 0.35, ease: [0.16, 1, 0.3, 1] } }
+              }
+              className={`group relative border border-grid-line p-8 flex flex-col transition-all duration-[350ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                tier.isPopular
+                  ? "bg-[#1C1C1C]"
+                  : "bg-[#141414] hover:border-neutral-600 motion-safe:hover:shadow-[0_16px_32px_-18px_rgba(0,0,0,0.6)]"
               }`}
             >
+              {!tier.isPopular && (
+                <span className="absolute top-0 left-0 right-0 h-[2px] bg-saffron origin-left scale-x-0 motion-safe:group-hover:scale-x-100 transition-transform duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)]" />
+              )}
               {tier.isPopular && (
                 <div className="absolute top-0 left-0 w-full h-1 bg-saffron" />
               )}
@@ -157,17 +227,26 @@ export default function PricingMatrix() {
               >
                 {tier.cta as string}
               </a>
-            </div>
+            </motion.div>
           ))}
-        </div>
-        
+        </motion.div>
+
         <div className="max-w-4xl mx-auto space-y-8">
           {/* Prix Fondateur Banner */}
           <div className="bg-saffron text-obsidian font-bold p-4 text-center tracking-wide font-plex-mono uppercase text-sm">
             {/* [PRIX FONDATEUR LOCK] */}
             {t("pricing_founder_banner")}
             <div className="mt-2 h-2 bg-obsidian/20 max-w-md mx-auto rounded-none overflow-hidden">
-              <div className="h-full bg-obsidian w-[87%]" />
+              {prefersReducedMotion ? (
+                <div className="h-full bg-obsidian w-[87%]" />
+              ) : (
+                <motion.div
+                  className="h-full bg-obsidian"
+                  initial={{ width: "0%" }}
+                  animate={{ width: inView ? "87%" : "0%" }}
+                  transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                />
+              )}
             </div>
             <div className="mt-1 text-xs opacity-80">{t("pricing_founder_spots")}</div>
           </div>

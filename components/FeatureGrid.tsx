@@ -1,9 +1,38 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
+import { motion, useReducedMotion, useInView } from "framer-motion";
+import { swissContainerVariants, swissItemVariants } from "@/lib/motion";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
+
+// useReducedMotion() can resolve synchronously on the client's first render
+// (before hydration completes), which would mismatch the SSR output —
+// always false — and throw a hydration error. Gate it behind mount so the
+// first client render matches the server, then adopt the real value.
+function useSafeReducedMotion() {
+  const [safe, setSafe] = useState(false);
+  const reduced = useReducedMotion();
+  useEffect(() => { setSafe(true); }, []);
+  return safe ? reduced : false;
+}
 
 export default function FeatureGrid() {
   const { t } = useLanguage();
+  const prefersReducedMotion = useSafeReducedMotion();
+  const gridRef = useRef(null);
+  // animate (not whileInView) so this reliably picks up the reduced-motion
+  // gate settling shortly after mount — whileInView's IntersectionObserver
+  // callback doesn't reliably re-read a variants object that changed after
+  // it started watching.
+  const inView = useInView(gridRef, { once: true, amount: 0.2 });
+
+  // When reduced motion is preferred, skip the animation entirely — render final state.
+  const containerVariants = prefersReducedMotion
+    ? { hidden: { opacity: 1 }, visible: { opacity: 1 } }
+    : swissContainerVariants;
+  const itemVariants = prefersReducedMotion
+    ? { hidden: { opacity: 1, y: 0 }, visible: { opacity: 1, y: 0 } }
+    : swissItemVariants;
 
   const features = [
     {
@@ -46,12 +75,21 @@ export default function FeatureGrid() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <motion.div
+          ref={gridRef}
+          variants={containerVariants}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+        >
           {features.map((feature, index) => (
-            <div
+            <motion.div
               key={index}
-              className="border border-grid-line bg-[#0A0A0A] p-8 flex flex-col hover:border-neutral-600 transition-colors"
+              variants={itemVariants}
+              whileHover={prefersReducedMotion ? undefined : { y: -3, transition: { duration: 0.35, ease: [0.16, 1, 0.3, 1] } }}
+              className="group relative border border-grid-line bg-[#0A0A0A] p-8 flex flex-col hover:border-neutral-600 motion-safe:hover:shadow-[0_16px_32px_-18px_rgba(0,0,0,0.6)] transition-all duration-[350ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
             >
+              <span className="absolute top-0 left-0 right-0 h-[2px] bg-saffron origin-left scale-x-0 motion-safe:group-hover:scale-x-100 transition-transform duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)]" />
               <div className="font-plex-mono text-xs text-saffron uppercase tracking-widest mb-6">
                 [{String(index + 1).padStart(2, "0")}] {feature.highlight}
               </div>
@@ -66,9 +104,9 @@ export default function FeatureGrid() {
                   {feature.meta}
                 </span>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
