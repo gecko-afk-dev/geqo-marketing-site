@@ -31,7 +31,7 @@ export default function Footer() {
               <p className="pt-2 font-plex-mono uppercase tracking-widest text-[#525252]">
                 GEQO SARL AU (IF: —, ICE: —, RC: —, Casablanca)
                 <br />
-                GEQO LLC (EIN: —, Wyoming)
+                GEQO LLC (EIN: 35-2978925, Wyoming)
               </p>
             </div>
           </div>
