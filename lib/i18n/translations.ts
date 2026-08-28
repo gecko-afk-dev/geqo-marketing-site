@@ -60,6 +60,17 @@ export const translations = {
     feat_4_meta: "DATA EXPORT: CSV/JSON",
     feat_4_hl: "RETARGETING ENGINE",
 
+    // Order Signal
+    order_signal_eyebrow: "// FROM ORDER TO DOOR",
+    order_signal_title: "Every order, tracked live.",
+    order_signal_hint: "Scroll to follow the order",
+    order_signal_node_1: "01 — Order sent",
+    order_signal_node_2: "02 — Heading to the kitchen",
+    order_signal_node_3: "03 — Live until it reaches your door",
+    order_signal_caption_1: "Order placed on WhatsApp — no app, no download",
+    order_signal_caption_2: "The ticket prints in the kitchen — 2 to 4 minutes, not 30",
+    order_signal_caption_3: "Route mapped, driver dispatched — live until it reaches your door",
+
     // Form
     form_heading: "Received a Beta Invitation Card?",
     form_subheading: "Enter your 6-character code to activate your restaurant.",
@@ -244,6 +255,17 @@ export const translations = {
     feat_4_meta: "EXPORT DONNÉES: CSV/JSON",
     feat_4_hl: "MOTEUR DE RETARGETING",
 
+    // Order Signal
+    order_signal_eyebrow: "// DE LA COMMANDE À LA PORTE",
+    order_signal_title: "Chaque commande, tracée en direct.",
+    order_signal_hint: "Scroll pour suivre la commande",
+    order_signal_node_1: "01 — Commande envoyée",
+    order_signal_node_2: "02 — Direction la cuisine",
+    order_signal_node_3: "03 — En direct jusqu'à la porte",
+    order_signal_caption_1: "Commande passée sur WhatsApp — pas d'app, pas de téléchargement",
+    order_signal_caption_2: "Le ticket s'imprime en cuisine — 2 à 4 minutes, pas 30",
+    order_signal_caption_3: "Itinéraire tracé, livreur dispatché — en direct jusqu'à la porte",
+
     // Form
     form_heading: "Vous avez reçu une carte d'invitation Bêta ?",
     form_subheading: "Entrez votre code à 6 caractères pour activer votre restaurant.",
@@ -427,6 +449,17 @@ export const translations = {
     feat_4_desc: "أنت تملك 100% من بيانات عملائك. قم بتصدير CSV أو أطلق حملات إعادة استهداف واتساب.",
     feat_4_meta: "تصدير البيانات: CSV/JSON",
     feat_4_hl: "محرك إعادة الاستهداف",
+
+    // Order Signal
+    order_signal_eyebrow: "// من الطلب إلى الباب",
+    order_signal_title: "كل طلب، متتبَّع مباشرة.",
+    order_signal_hint: "مرّر للأسفل لتتبع الطلب",
+    order_signal_node_1: "01 — تم إرسال الطلب",
+    order_signal_node_2: "02 — في الطريق إلى المطبخ",
+    order_signal_node_3: "03 — مباشرة حتى الباب",
+    order_signal_caption_1: "الطلب تم عبر واتساب — بدون تطبيق، بدون تحميل",
+    order_signal_caption_2: "التذكرة تُطبع في المطبخ — من 2 إلى 4 دقائق، وليس 30",
+    order_signal_caption_3: "المسار محدَّد، السائق موزَّع — مباشرة حتى الباب",
 
     // Form
     form_heading: "هل تلقيت بطاقة دعوة للنسخة التجريبية؟",
