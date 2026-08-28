@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
+import OrderSignal from "@/components/OrderSignal";
 import FeatureGrid from "@/components/FeatureGrid";
 import FinancialCalculator from "@/components/FinancialCalculator";
 import PricingMatrix from "@/components/PricingMatrix";
@@ -14,6 +15,7 @@ export default function Home() {
       <Header />
       <main className="flex-grow">
         <HeroSection />
+        <OrderSignal />
         <FeatureGrid />
         <FinancialCalculator />
         <PricingMatrix />
