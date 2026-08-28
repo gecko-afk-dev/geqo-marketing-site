@@ -10,10 +10,10 @@ import { useLanguage } from "@/lib/i18n/LanguageContext";
 // always false — and throw a hydration error. Gate it behind mount so the
 // first client render matches the server, then adopt the real value.
 function useSafeReducedMotion() {
-  const detected = useReducedMotion();
   const [safe, setSafe] = useState(false);
-  useEffect(() => setSafe(!!detected), [detected]);
-  return safe;
+  const reduced = useReducedMotion();
+  useEffect(() => { setSafe(true); }, []);
+  return safe ? reduced : false;
 }
 
 export default function PricingMatrix() {
